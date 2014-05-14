@@ -28,8 +28,8 @@
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="index.php">Principal</a></li>
-                <li><a href="#">Quienes somos</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="about.php">Quienes somos</a></li>
+                <li><a href="contact.php">Contacto</a></li>
 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <b class="caret"></b></a>

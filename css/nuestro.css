@@ -34,3 +34,12 @@
 .carousel-inner.reduce-altura .item img {
 	margin-top:-100px;
 }
+.carousel {
+    margin-bottom:30px;
+}
+
+iframe.google-map {
+    width:100%;
+    height:450px;
+    border:none;
+}

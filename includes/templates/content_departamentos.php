@@ -1,13 +1,12 @@
+<div class="container ">
+    <div class="well">
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+        <ul class="breadcrumb well">
+            <li><a href="index.php">Principal</a> <span class="divider">/</span></li>
+            <li class="active">Departamentos</li>
+        </ul>
 
-    <div class="container ">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="well row">
-		<h1>Departamentos</h1>
+        <h1>Departamentos</h1>
 		<p>
             Es un hecho establecido hace demasiado tiempo que un lector se distraer� con el contenido del texto de
             un sitio mientras que mira su dise�o. El punto de usar Lorem Ipsum es que tiene una distribuci�n m�s
@@ -17,8 +16,7 @@
             dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas
             versiones han evolucionado a trav�s de los a�os, algunas veces por accidente, otras veces a prop�sito
 		</p>
-      </div><!-- /.row -->
 
-
-    </div><!-- /.container -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
 
