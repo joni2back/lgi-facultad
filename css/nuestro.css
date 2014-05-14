@@ -1,0 +1,36 @@
+.row.articulos-homepage .span6 {
+	margin-bottom:30px;
+}
+
+.row.articulos-homepage .span6 {
+	text-align:center;
+}
+
+.slider-principal h2 {
+	color:#fff;
+	text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
+}
+
+.brand  {
+	padding:0!important;
+}
+
+.logo-caja {
+	height: 51px;
+	margin: 0;
+	padding: 0;
+	width:105px;
+}
+
+.dropdown-menu {
+	border-color: #007AFF;
+	border-width: 3px;
+}
+
+.carousel-inner.reduce-altura {
+	height:250px;
+}
+
+.carousel-inner.reduce-altura .item img {
+	margin-top:-100px;
+}
