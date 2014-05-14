@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Members Only"
-AuthUserFile /var/www/clients/client19/web24/.htpasswd_stats
-require valid-user
