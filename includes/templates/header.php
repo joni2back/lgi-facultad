@@ -34,10 +34,10 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Pisos</a></li>
-                    <li><a href="#">Cocheras</a></li>
+                    <li><a href="pisos.php">Pisos</a></li>
+                    <li><a href="cocheras.php">Cocheras</a></li>
                     <li><a href="departamentos.php">Departamentos</a></li>
-                    <li><a href="#">Locales comerciales</a></li>
+                    <li><a href="locales.php">Locales comerciales</a></li>
                     <li class="divider"></li>
                     <li class="nav-header">Tipos de ventas</li>
                     <li><a href="#">Desde la maqueta o plano (Solo proyecto)</a></li>
