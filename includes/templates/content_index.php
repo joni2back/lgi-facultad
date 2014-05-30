@@ -1,35 +1,36 @@
 
-    <div class="container marketing">
+    <div class="container mt80">
+		<div class="row center">
+		<div class="span1"></div>
+		<div class="well span10">
+			<h2 class="center">Trabajo practico LGI</h2>
+			
+			<h4>Integrantes</h4>
+			<ul>
+				<li>Denis Conte</li>
+				<li>Omar Cristofaro</li>
+				<li>Javier Buzzatto</li>
+				<li>Jonas Sciangula</li>
+			</ul>			
+			
+			<h4>Profesor</h4>
+			<ul>
+				<li>Adrian Marquez</li>
+			</ul>			
+			
+			<h4>Curso</h4>
+			<ul>
+				<li>Tercero Primera</li>
+			</ul>
+			
+			<hr />
+			<h3 class="center">Proyecto CAJAS.AR 2014</h2>
+			<a href="home.php" class="btn btn-large btn-primary" type="button">Ingresar al sitio</a>
 
-      <div class="row articulos-homepage">
-        <div class="span6">
-          <img class="img-polaroid" src="images/depto-mini.jpg">
-          <h2>Departamentos</h2>
-          <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-          <p><a class="btn" href="departamentos.php">Mas detalles &raquo;</a></p>
-        </div>
-
-        <div class="span6">
-          <img class="img-polaroid" src="images/piso-mini.jpg">
-          <h2>Pisos completos</h2>
-          <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-          <p><a class="btn" href="pisos.php">Mas detalles &raquo;</a></p>
-        </div>
-
-        <div class="span6">
-          <img class="img-polaroid" src="images/parking-mini.jpg">
-          <h2>Cocheras</h2>
-          <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-          <p><a class="btn" href="cocheras.php">Mas detalles &raquo;</a></p>
-        </div>
-
-        <div class="span6">
-          <img class="img-polaroid" src="images/local-mini.jpg">
-          <h2>Locales comerciales</h2>
-          <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-          <p><a class="btn" href="locales.php">Mas detalles &raquo;</a></p>
-        </div>
-      </div>
-
+		</div>
+		<div class="span1"></div>
+		</div>
     </div>
 
+
+	
