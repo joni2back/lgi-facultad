@@ -13,10 +13,8 @@
             <a class="brand" href="home.php"><img class="logo-caja" src="images/logo1.png"></a>
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="home.php">Principal</a></li>
+                <li class=""><a href="home.php">Principal</a></li>
                 <li><a href="about.php">Quienes somos</a></li>
-                <li><a href="contact.php">Contacto</a></li>
-
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -34,6 +32,7 @@
 					-->
                   </ul>
                 </li>
+                <li><a href="contact.php">Contacto</a></li>
               </ul>
               <ul class="nav pull-right">
                 <li class="dropdown">
@@ -45,7 +44,7 @@
 							  <input class="" type="text" placeholder="Usuario">
 							  <input class="" type="password" placeholder="Password">
 							  <br />
-							  <button type="submit" class="btn btn-info span2">Ingresar</button>
+							  <button type="submit" class="btn btn-primary span2">Ingresar</button>
 							</form>
 						</div>
 					</li>

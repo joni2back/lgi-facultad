@@ -16,25 +16,29 @@
                 <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3495245.1221106225!2d-60.86648685!3d-31.18399215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1400085551502"></iframe>
             </div>
             <div class="span3">
-                <form>
+                <form method="post" action="">
                   <fieldset>
                     <legend>Contacto online</legend>
-                    <label>Nombre</label>
-                    <input type="text" placeholder="Ingrese su nombre...">
-                    <label>Email</label>
-                    <input type="text" placeholder="Ingrese su email...">
-                    <label>Telefono</label>
-                    <input type="text" placeholder="Ingrese su telefono...">
-                    <label>Mensaje</label>
-                    <textarea rows="3"></textarea>
+                    <?php if ($_POST) { ?>
+                        Su consulta ha sido enviada, lo contactaremos a la brevedad.
+                    <?php } else { ?>
+                        <label>Nombre</label>
+                        <input type="text" name="name" placeholder="Ingrese su nombre...">
+                        <label>Email</label>
+                        <input type="text" placeholder="Ingrese su email...">
+                        <label>Telefono</label>
+                        <input type="text" placeholder="Ingrese su telefono...">
+                        <label>Mensaje</label>
+                        <textarea rows="3"></textarea>
 
-                    <label class="radio">
-                      <input type="radio" name="contact_type"> Contacto por venta
-                    </label>
-                    <label class="radio">
-                      <input type="radio" name="contact_type"> Contacto por consultas
-                    </label>
-                    <button type="submit" class="btn">Enviar consulta</button>
+                        <label class="radio">
+                          <input type="radio" name="contact_type"> Contacto por venta
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="contact_type"> Contacto por consultas
+                        </label>
+                        <button type="submit" class="btn">Enviar consulta</button>
+                    <?php } ?>
                   </fieldset>
                 </form>
             </div>

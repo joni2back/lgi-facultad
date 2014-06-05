@@ -8,11 +8,11 @@
 
         <h1>Cocheras</h1>
 		<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.</p>
-		
-		
-		
-	
-		
+
+
+
+
+
 		<!-- ---------------------------------------------------------------------->
 		<hr />
 		<div class="well">
@@ -22,8 +22,8 @@
 				pginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una bsqueda de "Lorem Ipsum" va a
 				dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas
 				versiones han evolucionado a travs de los aos, algunas veces por accidente, otras veces a propsito
-			</p>    
-			
+			</p>
+
 
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
@@ -31,7 +31,7 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Plano cochera zona centro</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="Cocheras.php">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
@@ -40,7 +40,7 @@
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
-				
+
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Plano cochera zona oeste</h2>
@@ -52,7 +52,7 @@
 		</div>
 
 
-		
+
 		<!-- ---------------------------------------------------------------------->
 		<hr />
 			<div class="well">
@@ -60,8 +60,8 @@
 			<p>
 				Estos textos hacen parecerlo un espaol que se puede leer. Muchos paquetes de autoedicin y editores de
 				pginas web usan el Lorem Ipsum como su texto por defecto
-			</p>    
-			
+			</p>
+
 
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
@@ -69,7 +69,7 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Terreno cochera 100mts2</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="Cocheras.php">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
@@ -78,7 +78,7 @@
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
-				
+
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Terreno cochera 50mts2</h2>
@@ -96,8 +96,8 @@
 			<p>
 				Estos textos hacen parecerlo un espaol que se puede leer. Muchos paquetes de autoedicin y editores de
 				pginas web usan el Lorem Ipsum como su texto por defecto
-			</p>    
-			
+			</p>
+
 
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
@@ -105,7 +105,7 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Cochera 60mts2</h2>
 				  <p>En Mendoza 3233, pleno barrio echesortu</p>
-				  <p><a class="btn" href="Cocheras.php">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
@@ -114,7 +114,7 @@
 				  <p>Jujuy 1818</p>
 				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
-				
+
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Cochera de manzana entera</h2>
@@ -124,7 +124,7 @@
 			  </div>
 			</div>
 		</div>
-		
+
 		<!-- ---------------------------------------------------------------------->
 		<hr />
 		<div class="well">
@@ -132,8 +132,8 @@
 			<p>
 				Estos textos hacen parecerlo un espaol que se puede leer. Muchos paquetes de autoedicin y editores de
 				pginas web usan el Lorem Ipsum como su texto por defecto
-			</p>    
-			
+			</p>
+
 
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
@@ -141,7 +141,7 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Cochera a estrenar 200mts2</h2>
 				  <p>En Mendoza 3233, pleno barrio echesortu</p>
-				  <p><a class="btn" href="Cocheras.php">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
@@ -150,7 +150,7 @@
 				  <p>Jujuy 1818</p>
 				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
-				
+
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Cochera 130mts2 zona norte</h2>
@@ -158,9 +158,9 @@
 				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 			  </div>
-			</div>		
-		</div>		
-		
+			</div>
+		</div>
+
 	</div><!-- /.row -->
 </div><!-- /.container -->
 
