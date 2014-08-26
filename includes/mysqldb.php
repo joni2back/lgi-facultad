@@ -5,15 +5,15 @@ class MySQLConnection
     private $_dbLink, $_queryResponse;
     public $lastResult;
 
-    public function __construct()
+    public function __construct($user, $pass, $host, $database)
     {
-        $this->_connect();
+        $this->connect($user, $pass, $host, $database);
     }
 
-    private function _connect()
+    public function connect($user, $pass, $host, $database)
     {
-        $this->_dbLink = mysqli_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
-        mysqli_select_db($this->_dbLink, MYSQL_DATABASE);
+        $this->_dbLink = mysqli_connect($host, $user, $pass);
+        mysqli_select_db($this->_dbLink, $database);
     }
 
     public function query($query)

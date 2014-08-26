@@ -13,12 +13,11 @@ class Application
 
     public function getUserByCredentials($username, $password)
     {
-        $queryString = "SELECT * FROM usuarios WHERE username='{$username}' AND password='$password' LIMIT 1";
-        $queryString = "SHOW DATABASES";
+        $queryString = "SELECT * FROM usuarios WHERE username='{$username}' AND password='{$password}' LIMIT 1";
         return $this->db->query($queryString)->getOne();
     }
 
-    public function loginUser(\stdClass $userResult)
+    public function loginUser($userResult)
     {
         @session_start();
         if (! (isset($userResult->id) && isset($userResult->username))) {
@@ -34,7 +33,8 @@ class Application
     public function logout()
     {
         @session_start();
-        $_SESSION['username'] = $_SESSION['userId'] = null;
+        $this->setSessionVar('user', null);
+        $this->setSessionVar('username', null);
         @session_destroy();
     }
 
