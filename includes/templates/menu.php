@@ -35,21 +35,7 @@
                 <li><a href="contact.php">Contacto</a></li>
               </ul>
               <ul class="nav pull-right">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingreso administracion <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li>
-						<div class="span3">
-							<form class="navbar-form ">
-							  <input class="" type="text" placeholder="Usuario">
-							  <input class="" type="password" placeholder="Password">
-							  <br />
-							  <button type="submit" class="btn btn-primary span2">Ingresar</button>
-							</form>
-						</div>
-					</li>
-                  </ul>
-                </li>
+                <li class=""><a href="login.php">Ingreso administracion</a></li>
 			   </ul>
             </div>
           </div>
