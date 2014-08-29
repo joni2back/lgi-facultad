@@ -1,24 +1,33 @@
 <?php
 
 $errorMsg = '';
-if ($username || $password) {
-    $user = $app->getUserByCredentials($username, $password);
-    if (! $app->loginUser($user)) {
-        $errorMsg = 'El usuario o contraseña son invalidos';
-    }
+
+if ($app->io->getRequest('action') === 'logout') {
+    $app->logout();
 }
 
+if ($app->io->getRequest('action') === 'login') {
+    $username = $app->io->getPost('username');
+    $password = $app->io->getPost('password');
+
+    if ($username || $password) {
+        $user = $app->getUserByCredentials($username, $password);
+
+        if (! $app->loginUser($user)) {
+            $errorMsg = 'El usuario o contraseña son invalidos';
+        }
+    }
+}
 ?>
 
-
-<div class="container ">
+<div class="container">
     <div class="well">
-
-        <?php if ($app->getSessionVar('username')) { ?>
-            <h2>Bienvenido <?php echo $app->getSessionVar('username'); ?></h1>
+        <?php if ($app->io->getSession('username')) { ?>
+            <h2>Bienvenido: <?php echo $app->io->getSession('username'); ?></h1>
+            <a href="login.php?action=logout">Cerrar sesion</a>
         <?php } else { ?>
             <h2>Ingreso a la administracion</h1>
-            <form method="post">
+            <form method="post" action="login.php?action=login">
                 <div>
                     <input name="username" type="text" placeholder="Nombre de usuario"/>
                 </div>
@@ -36,7 +45,6 @@ if ($username || $password) {
                 </div>
             </form>
         <?php } ?>
-
     </div>
 </div>
 

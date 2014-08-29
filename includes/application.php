@@ -3,17 +3,19 @@
 class Application
 {
     protected $db;
+    public $io;
     protected $userId;
 
-    public function __construct(MySQLConnection $db)
+    public function __construct(MySQLConnection $db, InputData $io)
     {
         @session_start();
         $this->db = $db;
+        $this->io = $io;
     }
 
     public function getUserByCredentials($username, $password)
     {
-        $queryString = "SELECT * FROM usuarios WHERE username='{$username}' AND password='{$password}' LIMIT 1";
+        $queryString = "SELECT * FROM users WHERE username='{$username}' AND password='{$password}' LIMIT 1";
         return $this->db->query($queryString)->getOne();
     }
 
@@ -25,27 +27,17 @@ class Application
         }
 
         $this->userId = $userResult->id;
-        $this->setSessionVar('user', $userResult);
-        $this->setSessionVar('username', $userResult->username);
+        $this->io->setSession('user', $userResult);
+        $this->io->setSession('username', $userResult->username);
         return true;
     }
 
     public function logout()
     {
         @session_start();
-        $this->setSessionVar('user', null);
-        $this->setSessionVar('username', null);
+        $this->io->setSession('user', null);
+        $this->io->setSession('username', null);
         @session_destroy();
     }
 
-    public function getSessionVar($name, $default = null)
-    {
-        return isset($_SESSION[$name]) ? $_SESSION[$name] : $default;
-    }
-
-    public function setSessionVar($name, $value)
-    {
-        return $_SESSION[$name] = $value;
-    }
 }
-
