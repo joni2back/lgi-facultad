@@ -13,6 +13,5 @@
         })
       }(window.jQuery)
     </script>
-    <script src="assets/js/holder/holder.js"></script>
   </body>
 </html>

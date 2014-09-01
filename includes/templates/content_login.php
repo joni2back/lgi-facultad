@@ -26,22 +26,33 @@ if ($app->io->getRequest('action') === 'login') {
             <h2>Bienvenido: <?php echo $app->io->getSession('username'); ?></h1>
             <a href="login.php?action=logout">Cerrar sesion</a>
         <?php } else { ?>
-            <h2>Ingreso a la administracion</h1>
-            <form method="post" action="login.php?action=login">
+            <h2 class="mb25">Ingreso al sitio</h1>
+            <form class="mb0" method="post" action="login.php?action=login">
+
                 <div>
-                    <input name="username" type="text" placeholder="Nombre de usuario"/>
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-user"></i></span>
+                        <input name="username" type="text" placeholder="Nombre de usuario" class="span5"/>
+                    </div>
                 </div>
 
                 <div>
-                    <input name="password" type="password" placeholder="Contraseña" />
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-lock"></i></span>
+                        <input name="password" type="password" placeholder="Contraseña" class="span5"/>
+                    </div>
                 </div>
 
                 <?php if ($errorMsg) { ?>
-                    <div class="alert alert-error"><?php echo $errorMsg; ?></div>
+                    <div>
+                        <div class="alert alert-error"><?php echo $errorMsg; ?></div>
+                    </div>
                 <?php } ?>
 
                 <div>
-                    <input type="submit" value="Iniciar sesion" class="btn btn-primary"/>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="icon-circle-arrow-right white"></i> Iniciar sesion
+                    </button>
                 </div>
             </form>
         <?php } ?>
