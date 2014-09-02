@@ -40,6 +40,24 @@ class Application
         return $this->db->query($queryString)->getOne();
     }
 
+    public function getArticlesByCategory($categoryId, $limit = 4)
+    {
+        $categoryId = (int) $categoryId;
+        $limit = (int) $limit;
+        $queryString = ""
+            . "SELECT articles.*, "
+                . "users.username, "
+                . "article_types.name AS article_type, "
+                . "article_categories.name AS article_category "
+            . "FROM articles "
+                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id "
+                . "INNER JOIN article_types ON articles.id_article_type = article_types.id "
+                . "INNER JOIN users ON articles.id_author = users.id "
+            . "WHERE articles.id_article_category='{$categoryId}' LIMIT {$limit}";
+
+        return $this->db->query($queryString)->getResults();
+    }
+
     public function loginUser($userResult)
     {
         @session_start();

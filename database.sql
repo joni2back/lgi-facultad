@@ -80,6 +80,7 @@ CREATE TABLE `articles` (
   `location` varchar(128) DEFAULT NULL,
   `address` varchar(64) DEFAULT NULL,
   `price` float DEFAULT NULL,
+  `image` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_article_category` (`id_article_category`),
   KEY `id_article_type` (`id_article_type`),
@@ -109,7 +110,7 @@ DROP TABLE IF EXISTS `roles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `roles` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) CHARACTER SET latin1 NOT NULL,
+  `name` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -134,10 +135,10 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `id_role` int(2) DEFAULT NULL,
-  `username` varchar(64) CHARACTER SET latin1 NOT NULL,
-  `password` varchar(64) CHARACTER SET latin1 NOT NULL,
-  `first_name` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
-  `last_name` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `username` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `first_name` varchar(64) DEFAULT NULL,
+  `last_name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_role` (`id_role`),
   CONSTRAINT `id_role` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION

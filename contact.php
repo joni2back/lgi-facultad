@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/includes/constants.php';
+require_once dirname(__FILE__) . '/includes/autoload.php';
 
 require_once TEMPLATES_DIR . DS . 'header.php';
 require_once TEMPLATES_DIR . DS . 'menu.php';
