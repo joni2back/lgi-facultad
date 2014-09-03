@@ -7,7 +7,7 @@
         </ul>
 
         <h1>Error 404</h1>
-        <p>La seccion solicitada no existe :(</p>
+        <p>La seccion solicitada no existe o esta restringida</p>
 
     </div>
 </div><!-- /.container -->

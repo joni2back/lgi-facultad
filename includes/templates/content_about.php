@@ -12,7 +12,7 @@
                 <img class="img img-polaroid img- center" src="images/quienes-somos.jpg" />
             </div>
             <div class="span8">
-                <p>Somos una empresa chilena con mas de 60 años de experiencia en el mercado de insumos silvoagropecuarios.</p>
+                <p>Somos una empresa rosarina con mas de 60 años de experiencia en el mercado de insumos agropecuarios.</p>
                 <p>Ofrecemos productos y servicios que son exportados a más de 30 países en el mundo.</p>
                 <p>Somos una empresa diversificada, que participa en la producción y comercialización de semillas, fitosanitarios, nutrición animal y vegetal, productos de jardinería, sanidad ambiental y cuidado de mascotas. Además contamos con una filial que presta servicios de mecanización agrícola.</p>
                 <p>Contamos con especialistas en cada una de las líneas de productos que manejamos. <br /> Realizamos una permanente inversión en tecnología y desarrollo de productos. </p>

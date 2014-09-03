@@ -15,14 +15,32 @@ class Application
     public function getSectionName()
     {
         $page = $this->io->getQuery('page');
+        $page = str_replace('-', '_', $page);
         return $page && is_string($page) ? $page : 'index';
+    }
+
+    public function isAdmin()
+    {
+        $user = $this->io->getSession('user');
+        return isset($user->role) && $user->role === 'Administrador';
+    }
+
+    public function getArticleCategoryByName($name)
+    {
+        $password = $this->hashPassword($password);
+        $queryString = ""
+            . "SELECT * FROM article_categories "
+            . "WHERE name LIKE '{$name}%' LIMIT 1";
+
+        $category = $this->db->query($queryString)->getOne();
+        return $category ? $category->id : null;
     }
 
     public function getUserByCredentials($username, $password)
     {
         $password = $this->hashPassword($password);
         $queryString = ""
-            . "SELECT users.*, roles.name FROM users "
+            . "SELECT users.*, roles.name AS role FROM users "
             . "INNER JOIN roles ON users.id_role = roles.id "
             . "WHERE username='{$username}' AND password='{$password}' LIMIT 1";
 

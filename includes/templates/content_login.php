@@ -22,9 +22,22 @@ if ($app->io->getRequest('action') === 'login') {
 
 <div class="container">
     <div class="well">
-        <?php if ($app->io->getSession('username')) { ?>
+
+
+        <ul class="breadcrumb well">
+            <li><a href="index.php?page=home">Principal</a> <span class="divider">/</span></li>
+            <li class="active">Ingreso usuarios</li>
+        </ul>
+
+        <?php if ($app->io->getSession('user')) { ?>
             <h2>Bienvenido: <?php echo $app->io->getSession('username'); ?></h1>
             <a href="index.php?page=login&action=logout">Cerrar sesion</a>
+
+            <?php if ($app->isAdmin()) { ?>
+                <hr />
+                <a href="index.php?page=admin">Ingresar a la administracion</a>
+            <?php } ?>
+
         <?php } else { ?>
             <h2 class="mb25">Ingreso al sitio</h1>
             <form class="mb0" method="post" action="index.php?page=login&action=login">
