@@ -25,6 +25,18 @@ class Application
         return isset($user->role) && $user->role === 'Administrador';
     }
 
+    public function getArticleCategories()
+    {
+        $queryString = "SELECT * FROM article_categories";
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function getArticleTypes()
+    {
+        $queryString = "SELECT * FROM article_types";
+        return $this->db->query($queryString)->getResults();
+    }
+
     public function getArticleCategoryByName($name)
     {
         $password = $this->hashPassword($password);
@@ -80,6 +92,27 @@ class Application
             . "WHERE articles.id_article_category='{$categoryId}' LIMIT {$limit}";
 
         return $this->db->query($queryString)->getResults();
+    }
+
+    public function addArticle(\stdClass $article, $userId)
+    {
+        $queryString = ""
+            . "INSERT INTO articles ("
+                . "id_article_category, id_article_type, id_author,"
+                . "title, description, location, address, price)"
+            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($article->id_article_category),
+            $this->db->escape($article->id_article_type),
+            $this->db->escape((int) $userId),
+            $this->db->escape($article->title),
+            $this->db->escape($article->description),
+            $this->db->escape($article->location),
+            $this->db->escape($article->address),
+            $this->db->escape($article->price)
+        );
+        return $this->db->query($queryString);
     }
 
     public function loginUser($userResult)

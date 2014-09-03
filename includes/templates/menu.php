@@ -33,8 +33,10 @@
             <li><a href="index.php?page=contact">Contacto</a></li>
           </ul>
           <ul class="nav pull-right">
-            <li class=""><a href="index.php?page=login">Ingreso administracion</a></li>
-           </ul>
+            <li class="">
+                <a href="index.php?page=login"><?php echo $app->io->getSession('username') ? 'Logueado como: <b>' . $app->io->getSession('username') . '</b>': 'Ingreso administracion'; ?></a>
+            </li>
+          </ul>
         </div>
       </div>
       </div>

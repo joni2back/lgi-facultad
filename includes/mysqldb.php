@@ -16,6 +16,11 @@ class MySQLConnection
         mysqli_select_db($this->_dbLink, $database);
     }
 
+    public function escape($string)
+    {
+        return mysqli_real_escape_string($this->_dbLink, $string);
+    }
+
     public function query($query)
     {
         $this->_queryResponse = mysqli_query($this->_dbLink, $query);
