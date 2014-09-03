@@ -81,12 +81,6 @@ class InputData
         return $this;
     }
 
-    public function setModel($namespace)
-    {
-        $this->_defaultModel = $namespace;
-        return $this;
-    }
-
     public function setSession($key, $value)
     {
         $_SESSION[$key] = $value;

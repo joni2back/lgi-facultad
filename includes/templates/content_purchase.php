@@ -23,7 +23,7 @@ if (! $article) {
         <?php } else { ?>
 
             <ul class="breadcrumb well">
-                <li><a href="index.php">Principal</a> <span class="divider">/</span></li>
+                <li><a href="index.php?page=home">Principal</a> <span class="divider">/</span></li>
                 <li class="active">Contacto por compra</li>
             </ul>
 
@@ -37,7 +37,7 @@ if (! $article) {
                       <fieldset>
                           <legend>
                               Item:
-                              <a href="item.php?id=<?php echo $article->id; ?>">
+                              <a href="index.php?page=item&id=<?php echo $article->id; ?>">
                                   <b><?php echo $article->title; ?></b>
                               </a>
                           </legend>

@@ -7,7 +7,7 @@
               <div class="container">
                 <div class="carousel-caption">
                   <h2>Nos avalan 26 a&ntilde;os de experiencia en el mercado inmobiliario.</h2>
-                  <a class="btn btn-large btn-primary" href="about.php">Conocer mas</a>
+                  <a class="btn btn-large btn-primary" href="index.php?page=about">Conocer mas</a>
                 </div>
               </div>
             </div>
@@ -17,7 +17,7 @@
               <div class="container">
                 <div class="carousel-caption">
                   <h2>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region.</h2>
-                  <a class="btn btn-large btn-primary" href="about.php">Conocer mas</a>
+                  <a class="btn btn-large btn-primary" href="index.php?page=about">Conocer mas</a>
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@
               <div class="container">
                 <div class="carousel-caption">
                   <h2>Altos estandares de calidad y eficiencia en nuestros productos.</h2>
-                  <a class="btn btn-large btn-primary" href="about.php">Conocer mas</a>
+                  <a class="btn btn-large btn-primary" href="index.php?page=about">Conocer mas</a>
                 </div>
               </div>
             </div>

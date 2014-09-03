@@ -24,10 +24,10 @@ if ($app->io->getRequest('action') === 'login') {
     <div class="well">
         <?php if ($app->io->getSession('username')) { ?>
             <h2>Bienvenido: <?php echo $app->io->getSession('username'); ?></h1>
-            <a href="login.php?action=logout">Cerrar sesion</a>
+            <a href="index.php?page=login&action=logout">Cerrar sesion</a>
         <?php } else { ?>
             <h2 class="mb25">Ingreso al sitio</h1>
-            <form class="mb0" method="post" action="login.php?action=login">
+            <form class="mb0" method="post" action="index.php?page=login&action=login">
 
                 <div>
                     <div class="input-prepend">

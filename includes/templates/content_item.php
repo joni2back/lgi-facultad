@@ -54,7 +54,7 @@ if (! $article) {
             <ul class="unstyled">
                 <li><h2><?php echo '$' . $article->price; ?></h2></li>
                 <li>
-                    <a class="btn btn-large btn-success" href="contact-purchase.php?articulo=<?php echo $article->id; ?>">Comprar</a>
+                    <a class="btn btn-large btn-success" href="index.php?page=purchase?articulo=<?php echo $article->id; ?>">Comprar</a>
                 </li>
             </ul>
         </div>
@@ -68,7 +68,7 @@ if (! $article) {
 
         <?php foreach ($app->getArticlesByCategory($article->id_article_category) as $relatedArticle) { ?>
             <div class="span3">
-                <a href="item.php?id=<?php echo $relatedArticle->id; ?>" class="text-center">
+                <a href="index.php?page=item&id=<?php echo $relatedArticle->id; ?>" class="text-center">
                     <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
                     <?php echo $relatedArticle->title; ?>
                 </a>

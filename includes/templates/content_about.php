@@ -2,7 +2,7 @@
     <div class="well">
 
         <ul class="breadcrumb well">
-            <li><a href="index.php">Principal</a> <span class="divider">/</span></li>
+            <li><a href="index.php?page=home">Principal</a> <span class="divider">/</span></li>
             <li class="active">Quienes somos</li>
         </ul>
 

@@ -12,6 +12,12 @@ class Application
         $this->io = $io;
     }
 
+    public function getSectionName()
+    {
+        $page = $this->io->getQuery('page');
+        return $page && is_string($page) ? $page : 'index';
+    }
+
     public function getUserByCredentials($username, $password)
     {
         $password = $this->hashPassword($password);

@@ -2,7 +2,7 @@
     <div class="well">
 
         <ul class="breadcrumb well">
-            <li><a href="index.php">Principal</a> <span class="divider">/</span></li>
+            <li><a href="index.php?page=home">Principal</a> <span class="divider">/</span></li>
             <li class="active">Departamentos</li>
         </ul>
 
@@ -30,21 +30,21 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Plano dto 3 dormitorios</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/piso-mini.jpg">
 				  <h2>Plano dto 2 dormitorios</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Plano dto 1 dormitorio</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 			  </div>
 			</div>
@@ -64,21 +64,21 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Terreno dto 10 pisos</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/piso-mini.jpg">
 				  <h2>Terreno dto con pisos a confirmar</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Terreno dto zona centro</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 			  </div>
 			</div>
@@ -97,21 +97,21 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Deptarmento de 1 Dormitorio</h2>
 				  <p>En Mendoza 3233, pleno barrio echesortu</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/piso-mini.jpg">
 				  <h2>Departamento de 2 dormitorios</h2>
 				  <p>Jujuy 1818</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Departamentos de 3 dormitorios</h2>
 				  <p>Corrientes y 9 de Julio</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 			  </div>
 			</div>
@@ -129,21 +129,21 @@
 				  <img class="img-polaroid" src="images/depto-mini.jpg">
 				  <h2>Deptarmento de 1 Dormitorio</h2>
 				  <p>En Mendoza 3233, pleno barrio echesortu</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/piso-mini.jpg">
 				  <h2>Departamento de 2 dormitorios</h2>
 				  <p>Jujuy 1818</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
 				  <img class="img-polaroid" src="images/parking-mini.jpg">
 				  <h2>Departamentos de 3 dormitorios</h2>
 				  <p>Corrientes y 9 de Julio</p>
-				  <p><a class="btn" href="contact-purchase.php?articulo=VARIABLE">Comprar &raquo;</a></p>
+				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 			  </div>
 			</div>
