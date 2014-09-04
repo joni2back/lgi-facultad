@@ -10,5 +10,7 @@
     <link href="libraries/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="libraries/bootstrap/css/base.css" rel="stylesheet">
 	<link href="css/nuestro.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.js"></script>
   </head>
   <body>

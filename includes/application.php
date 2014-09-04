@@ -94,8 +94,9 @@ class Application
         return $this->db->query($queryString)->getResults();
     }
 
-    public function addArticle(\stdClass $article, $userId)
+    public function addArticle($article, $userId)
     {
+        $article = (object) $article;
         $queryString = ""
             . "INSERT INTO articles ("
                 . "id_article_category, id_article_type, id_author,"
@@ -112,7 +113,8 @@ class Application
             $this->db->escape($article->address),
             $this->db->escape($article->price)
         );
-        return $this->db->query($queryString);
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
     }
 
     public function loginUser($userResult)

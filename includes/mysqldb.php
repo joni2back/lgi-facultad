@@ -27,6 +27,16 @@ class MySQLConnection
         return $this;
     }
 
+    public function getResponse()
+    {
+        return $this->_queryResponse;
+    }
+
+    public function getLastRecordId()
+    {
+        return mysqli_insert_id($this->_dbLink);
+    }
+
     public function getResults()
     {
         $this->lastResult = array();

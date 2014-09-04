@@ -9,7 +9,7 @@ require_once TEMPLATES_DIR . DS . 'header.php';
 
 if ($app->getSectionName() != 'index') {
     require_once TEMPLATES_DIR . DS . 'menu.php';
-    require_once TEMPLATES_DIR . DS . $carouselType;
+    //require_once TEMPLATES_DIR . DS . $carouselType;
 }
 
 if (file_exists(TEMPLATES_DIR . DS . $sectionFile)) {

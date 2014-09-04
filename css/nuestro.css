@@ -79,3 +79,9 @@ iframe.google-map {
 .mb25 {
     margin-bottom:25px;
 }
+
+.input-prepend .add-on, .input-append .add-on,
+.btn, .modal, .dropdown-menu, .alert, .thumbnail,
+.well, input, select, textarea, .bootstrap-tagsinput {
+    border-radius: 0px!important;
+}
