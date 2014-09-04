@@ -23,8 +23,8 @@ if (! $app->isAdmin()) {
         <h3>Acciones: </h3>
         <ul class="">
             <li><a href="index.php?page=admin-create-article" class="">Crear articulo</button>
-            <li><a href="index.php?page=admin-create-article" class="">Eliminar articulo</button>
-            <li><a href="index.php?page=admin-create-article" class="">Editar articulo</button>
+            <li><a href="index.php?page=admin-select-article" class="">Eliminar articulo</button>
+            <li><a href="index.php?page=admin-select-article" class="">Editar articulo</button>
         </ul>
 
     </div>

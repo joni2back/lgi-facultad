@@ -37,6 +37,12 @@ class Application
         return $this->db->query($queryString)->getResults();
     }
 
+    public function getArticles()
+    {
+        $queryString = "SELECT id, title FROM articles";
+        return $this->db->query($queryString)->getResults();
+    }
+
     public function getArticleCategoryByName($name)
     {
         $password = $this->hashPassword($password);
@@ -115,6 +121,30 @@ class Application
         );
         $success = $this->db->query($queryString)->getResponse();
         return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function editArticle($id, $article)
+    {
+        $article = (object) $article;
+        $queryString = ""
+            . "UPDATE articles SET "
+                . "id_article_category = '%s', id_article_type = '%s', "
+                . "title = '%s', description = '%s', location = '%s', "
+                . "address = '%s', price = '%s' "
+            . " WHERE id = '%s';";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($article->id_article_category),
+            $this->db->escape($article->id_article_type),
+            $this->db->escape($article->title),
+            $this->db->escape($article->description),
+            $this->db->escape($article->location),
+            $this->db->escape($article->address),
+            $this->db->escape($article->price),
+            $this->db->escape((int) $id)
+        );
+
+        return $this->db->query($queryString)->getResponse();
     }
 
     public function loginUser($userResult)
