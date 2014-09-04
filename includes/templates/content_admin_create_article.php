@@ -41,7 +41,7 @@ if ($app->io->getPost('title')) {
                         <li><a href="index.php?page=admin-create-article" class="">Crear otro articulo</a></li>
                     </ul>
                 <?php } else { ?>
-                    <form method="post" action="" class="">
+                    <form method="post" action="" class="mb0">
                       <fieldset>
                         <legend>Nuevo articulo</legend>
 
@@ -100,7 +100,8 @@ if ($app->io->getPost('title')) {
                                 <div class="alert alert-error hide"></div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary ">Crear</button>
+                        <hr />
+                        <button type="submit" class="btn btn-primary span2 pull-right">Crear</button>
 
                       </fieldset>
                     </form>
