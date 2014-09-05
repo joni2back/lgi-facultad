@@ -30,21 +30,25 @@ if ($app->io->getPost('title')) {
         </ul>
 
         <div class="row-fluid">
-
-          <div class="span12">
+            <div class="span12">
                 <?php if ($successId) { ?>
                     <h2>Se creo correctamente el articulo!</h2>
                     <h3>Acciones: </h3>
                     <ul class="">
                         <li><a href="index.php?page=item&id=<?php echo $successId; ?>">Ir al articulo</a></li>
-                        <li><a href="index.php?page=item&id=<?php echo $successId; ?>">Editarlo</a></li>
+                        <li><a href="index.php?page=admin-edit-article&id=<?php echo $successId; ?>">Editarlo</a></li>
+                        <li><a href="index.php?page=admin-edit-article&id=<?php echo $successId; ?>">Eliminarlo</a></li>
                         <li><a href="index.php?page=admin-create-article" class="">Crear otro articulo</a></li>
                     </ul>
-                <?php } else { include_once 'article_form.php'; } ?>
-          </div>
-
+                <?php } else { ?>
+                    <form method="post" id="article-form" class="mb0">
+                        <?php include_once 'article_form.php'; ?>
+                        <hr />
+                        <button type="submit" class="btn btn-primary span2 pull-right">Confirmar</button>
+                    </form>
+                <?php } ?>
+            </div>
         </div>
-
     </div>
 </div>
 

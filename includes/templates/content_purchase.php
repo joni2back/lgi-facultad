@@ -30,7 +30,7 @@ if (! $article) {
             <h1>Contacto por compra</h1>
             <div class="row">
                 <div class="span5">
-                    <img src="images/contact-big-icon.png" alt="" style="width:100%"/>
+                    <img src="assets/images/contact-big-icon.png" alt="" style="width:100%"/>
                 </div>
                 <div class="span5">
                     <form method="post" action="">

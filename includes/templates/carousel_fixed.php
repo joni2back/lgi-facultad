@@ -3,7 +3,7 @@
         <div id="myCarousel" class="carousel slide slider-principal">
           <div class="carousel-inner reduce-altura">
             <div class="item active">
-              <img src="images/departamento.jpg" alt="">
+              <img src="assets/images/departamento.jpg" alt="">
               <div class="container">
                 <div class="carousel-caption">
                     <h2>Cajas.AR - 26 a&ntilde;os de experiencia en el mercado inmobiliario.</h2>

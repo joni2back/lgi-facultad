@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="index.php?page=home"><img class="logo-caja" src="images/logo1.png"></a>
+        <a class="brand" href="index.php?page=home"><img class="logo-caja" src="assets/images/logo1.png"></a>
         <div class="nav-collapse collapse">
           <ul class="nav">
             <li class=""><a href="index.php?page=home">Principal</a></li>
@@ -34,7 +34,7 @@
           </ul>
           <ul class="nav pull-right">
             <li class="">
-                <a href="index.php?page=login"><?php echo $app->io->getSession('username') ? 'Logueado como: <b>' . $app->io->getSession('username') . '</b>': 'Ingreso administracion'; ?></a>
+                <a href="index.php?page=login"><?php echo $app->io->getSession('username') ? 'Logueado como: <b>' . $app->io->getSession('username') . '</b>': 'Iniciar sesion'; ?></a>
             </li>
           </ul>
         </div>

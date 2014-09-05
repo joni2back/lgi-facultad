@@ -82,10 +82,11 @@ class Application
         return $this->db->query($queryString)->getOne();
     }
 
-    public function getArticlesByCategory($categoryId, $limit = 4)
+    public function getArticlesByCategory($categoryId, $limit = 4, $except = null)
     {
         $categoryId = (int) $categoryId;
         $limit = (int) $limit;
+        $except = (int) $except;
         $queryString = ""
             . "SELECT articles.*, "
                 . "users.username, "
@@ -95,7 +96,7 @@ class Application
                 . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id "
                 . "INNER JOIN article_types ON articles.id_article_type = article_types.id "
                 . "INNER JOIN users ON articles.id_author = users.id "
-            . "WHERE articles.id_article_category='{$categoryId}' LIMIT {$limit}";
+            . "WHERE articles.id_article_category='{$categoryId}' AND articles.id != '{$except}' LIMIT {$limit}";
 
         return $this->db->query($queryString)->getResults();
     }
@@ -103,6 +104,7 @@ class Application
     public function addArticle($article, $userId)
     {
         $article = (object) $article;
+        $article->price = (float) str_replace(',', '.', $article->price);
         $queryString = ""
             . "INSERT INTO articles ("
                 . "id_article_category, id_article_type, id_author,"
@@ -126,6 +128,7 @@ class Application
     public function editArticle($id, $article)
     {
         $article = (object) $article;
+        $article->price = (float) str_replace(',', '.', $article->price);
         $queryString = ""
             . "UPDATE articles SET "
                 . "id_article_category = '%s', id_article_type = '%s', "
@@ -144,6 +147,13 @@ class Application
             $this->db->escape((int) $id)
         );
 
+        return $this->db->query($queryString)->getResponse();
+    }
+
+    public function deleteArticle($id)
+    {
+        $id = (int) $id;
+        $queryString = "DELETE FROM articles WHERE id = '{$id}';";
         return $this->db->query($queryString)->getResponse();
     }
 

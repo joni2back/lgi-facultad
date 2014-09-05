@@ -9,7 +9,7 @@
         <h1>Quienes somos</h1>
         <div class="row-fluid">
             <div class="span4">
-                <img class="img img-polaroid img- center" src="images/quienes-somos.jpg" />
+                <img class="img img-polaroid img- center" src="assets/images/quienes-somos.jpg" />
             </div>
             <div class="span8">
                 <p>Somos una empresa rosarina con mas de 60 años de experiencia en el mercado de insumos agropecuarios.</p>

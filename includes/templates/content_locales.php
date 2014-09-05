@@ -32,21 +32,21 @@
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
 				<div class="span3">
-				  <img class="img-polaroid" src="images/depto-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/depto-mini.jpg">
 				  <h2>Plano local 3 ambientes</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/piso-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/piso-mini.jpg">
 				  <h2>Plano local 2 ambientes</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/parking-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/parking-mini.jpg">
 				  <h2>Plano local 1 ambiente</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
@@ -70,21 +70,21 @@
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
 				<div class="span3">
-				  <img class="img-polaroid" src="images/depto-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/depto-mini.jpg">
 				  <h2>Terreno local 10 pisos</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/piso-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/piso-mini.jpg">
 				  <h2>Terreno local con pisos a confirmar</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/parking-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/parking-mini.jpg">
 				  <h2>Terreno local zona centro</h2>
 				  <p>Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region. Somos una empresa que construye futuros para sus clientes desde 1988 en toda la region</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
@@ -106,21 +106,21 @@
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
 				<div class="span3">
-				  <img class="img-polaroid" src="images/depto-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/depto-mini.jpg">
 				  <h2>Locales de 1 ambiente</h2>
 				  <p>En Mendoza 3233, pleno barrio echesortu</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/piso-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/piso-mini.jpg">
 				  <h2>Locales de 2 ambientes</h2>
 				  <p>Jujuy 1818</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/parking-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/parking-mini.jpg">
 				  <h2>Locales de 3 ambientes</h2>
 				  <p>Corrientes y 9 de Julio</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
@@ -142,21 +142,21 @@
 			<div class="container marketing">
 			  <div class="row articulos-homepage">
 				<div class="span3">
-				  <img class="img-polaroid" src="images/depto-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/depto-mini.jpg">
 				  <h2>Locales de 1 ambiente</h2>
 				  <p>En Mendoza 3233, pleno barrio echesortu</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/piso-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/piso-mini.jpg">
 				  <h2>Locales de 2 ambientes</h2>
 				  <p>Jujuy 1818</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>
 				</div>
 
 				<div class="span3">
-				  <img class="img-polaroid" src="images/parking-mini.jpg">
+				  <img class="img-polaroid" src="assets/images/parking-mini.jpg">
 				  <h2>Locales de 3 ambientes</h2>
 				  <p>Corrientes y 9 de Julio</p>
 				  <p><a class="btn" href="index.php?page=purchase&articulo=VARIABLE">Comprar &raquo;</a></p>

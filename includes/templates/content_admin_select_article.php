@@ -15,7 +15,7 @@ $articles = $app->getArticles();
         <ul class="breadcrumb well">
             <li><a href="index.php?page=home">Principal</a> <span class="divider">/</span></li>
             <li><a href="index.php?page=admin">Administrador</a> <span class="divider">/</span></li>
-            <li class="active">Editar articulo</li>
+            <li class="active">Seleccionar articulo</li>
         </ul>
 
         <div class="row-fluid">
@@ -30,7 +30,7 @@ $articles = $app->getArticles();
                             <option <?php echo $article->id == null ? 'selected="selected"':''; ?> value="<?php echo $article->id; ?>"><?php echo $article->title; ?></option>
                         <?php } ?>
                     </select>
-                    <button type="submit" class="btn btn-primary span2 pull-right">Editar</button>
+                    <button type="submit" class="btn btn-primary span1 pull-right">Ir</button>
                 </form>
             </div>
         </div>
