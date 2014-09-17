@@ -29,7 +29,7 @@ if (! $app->isAdmin()) {
             <li><a href="index.php?page=admin-select-article" class="">Editar articulo</a></li>
         </ul>
 
-        <h4>Articulos: </h4>
+        <h4>Consultas: </h4>
         <ul class="">
             <li><a href="index.php?page=admin-view-contacts" class="">Ver consultas</a></li>
         </ul>

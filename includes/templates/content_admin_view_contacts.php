@@ -4,6 +4,7 @@ if (! $app->isAdmin()) {
     include_once 'content_404.php';
     exit;
 }
+$questions = $app->getQuestions();
 
 ?>
 
@@ -19,6 +20,9 @@ if (! $app->isAdmin()) {
         <div class="row-fluid">
             <div class="span12">
                 <h3>Ultimas consultas</h3>
+                <?php if (! $questions) { ?>
+                    <p>No hay consultas por el momento.</p>
+                <?php } ?>
                 <dl class="">
                     <?php foreach($app->getQuestions() as $question) { ?>
                         <dt class="mb10">
@@ -32,6 +36,7 @@ if (! $app->isAdmin()) {
                                 <li><b>Nombre:</b> <?php echo $question->name; ?></li>
                                 <li><b>Email:</b> <?php echo $question->email; ?></li>
                                 <li><b>Telefono:</b> <?php echo $question->phone; ?></li>
+                                <li><b>Fecha:</b> <?php echo $question->fecha; ?></li>
                                 <li><b>IP:</b> <?php echo $question->ip; ?></li>
                             </ul>
                         </dd>

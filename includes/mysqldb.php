@@ -8,6 +8,7 @@ class MySQLConnection
     public function __construct($user, $pass, $host, $database)
     {
         $this->connect($user, $pass, $host, $database);
+        @register_shutdown_function(array($this, 'disconnect'));
     }
 
     public function connect($user, $pass, $host, $database)

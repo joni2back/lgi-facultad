@@ -148,7 +148,7 @@ class Application
 
         $queryString = ""
             . "INSERT INTO consultas ("
-                . "article_id, name, email, phone, message, ip)"
+                . "id_article, name, email, phone, message, ip)"
             . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s');";
 
         $queryString = sprintf($queryString,

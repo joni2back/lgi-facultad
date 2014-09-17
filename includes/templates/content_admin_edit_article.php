@@ -30,7 +30,7 @@ if ($article) {
     $price = $article->price;
 
     if ($action === 'edit' && $app->io->getPost('title')) {
-        $successId = $app->editArticle($articleId, $app->io->getPost());
+        $success = $app->editArticle($articleId, $app->io->getPost());
     } elseif ($action === 'delete') {
         $deletedOk = $app->deleteArticle($articleId);
     }
@@ -54,11 +54,11 @@ if ($article) {
                 <?php if (! $article) { ?>
                     <h2>El articulo no existe</h2>
                 <?php } else { ?>
-                    <?php if ($successId) { ?>
+                    <?php if ($success) { ?>
                         <h2>Se edito correctamente el articulo!</h2>
                         <h3>Acciones: </h3>
                         <ul class="">
-                            <li><a href="index.php?page=item&id=<?php echo $successId; ?>">Ir al articulo</a></li>
+                            <li><a href="index.php?page=item&id=<?php echo $articleId; ?>">Ir al articulo</a></li>
                             <li><a href="index.php?page=admin-edit-article&id=<?php echo $articleId; ?>">Editarlo</a></li>
                             <li><a href="index.php?page=admin-create-article" class="">Crear otro articulo</a></li>
                         </ul>

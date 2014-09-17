@@ -47,8 +47,10 @@ if ($article && $app->io->getPost()) {
                                   <b><?php echo $article->title; ?></b>
                               </a>
                           </legend>
-                        <?php if ($app->io->getPost()) { ?>
-                            Su consulta ha sido enviada, lo contactaremos a la brevedad.
+                        <?php if ($successId && $app->io->getPost()) { ?>
+                            <div class="alert alert-success">Su consulta ha sido enviada, lo contactaremos a la brevedad.</div>
+                        <?php } elseif (!$successId && $app->io->getPost()) { ?>
+                            <div class="alert alert-error">No se pudo guardar la consulta, intente mas tarde.</div>
                         <?php } else { ?>
                             <div>
                                 <label>Nombre</label>

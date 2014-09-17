@@ -96,7 +96,7 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` (`id_article`, `id_article_category`, `id_article_type`, `id_author`, `title`, `description`, `location`, `address`, `price`) VALUES (3136,2,3,3,'Vendo Fiat 600 como nuevo','dads','Mar del tuyo','4394399',500),(4232,2,3,3,'27591','16697','Mar del tuyo','4394399',500);
+INSERT INTO `articles` (`id_article`, `id_article_category`, `id_article_type`, `id_author`, `title`, `description`, `location`, `address`, `price`) VALUES (3136,1,5,3,'Vendo Departamento 600 dormitorios como nuevo','Somos una empresa diversificada, que participa en la producciÃ³n y comercializaciÃ³n de semillas, fitosanitarios, nutriciÃ³n animal y vegetal, productos de jardinerÃ­a, sanidad ambiental y cuidado de mascotas. AdemÃ¡s contamos con una filial que presta servicios de mecanizaciÃ³n agrÃ­cola.\r\n\r\nContamos con especialistas en cada una de las lÃ­neas de productos que manejamos. \r\nRealizamos una permanente inversiÃ³n en tecnologÃ­a y desarrollo de productos.\r\n','Mar del tuyo','4394399',5000);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,11 +217,12 @@ CREATE TABLE `consultas` (
   `email` varchar(64) NOT NULL,
   `phone` varchar(32) DEFAULT NULL,
   `message` text,
+  `fecha` datetime DEFAULT NULL,
   `ip` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id_consulta`),
   KEY `id_article` (`id_article`),
   CONSTRAINT `id_article` FOREIGN KEY (`id_article`) REFERENCES `articles` (`id_article`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,9 +231,25 @@ CREATE TABLE `consultas` (
 
 LOCK TABLES `consultas` WRITE;
 /*!40000 ALTER TABLE `consultas` DISABLE KEYS */;
-INSERT INTO `consultas` (`id_consulta`, `id_article`, `name`, `email`, `phone`, `message`, `ip`) VALUES (2,3136,'hola','como','andas','todo bien?','192.168.1.1'),(3,3136,'Jonas Sciangu','joni2back@gmail.com','0341-4579214','Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.\r\n\r\nIus id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te. Ne quodsi nusquam legendos has, ea dicit voluptua eloquentiam pro, ad sit quas qualisque. Eos vocibus deserunt quaestio ei.\r\n','192.168.1.1');
+INSERT INTO `consultas` (`id_consulta`, `id_article`, `name`, `email`, `phone`, `message`, `fecha`, `ip`) VALUES (1,3136,'Carlos Almagro','carlitos@mixmail.com','0341-4579214','Sometimes we encounter odd application responses that seem to make no sense. One of these such issues is related to running virtual server instances (OS Containers not Para-Virtualized VMs) and attempting to back up their data to Amazonâ€™s S3 cloud storage. For moderately sized virtual machines running MySQL databases or Python/PHP based websites and code repositories this can be an inexpensive, quickly provisioned, and easy way to provide disaster recovery backups in numerous geographic locations, since we generally want DR content to be located in a physically distant location. Nevertheless, we can encounter errors if using an S3 mount in a distance location from our server if the timezone/sync data is incorrect.','2014-09-17 15:03:02','192.168.1.1');
 /*!40000 ALTER TABLE `consultas` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_fecha` BEFORE INSERT ON `consultas`
+FOR EACH ROW SET NEW.fecha = NOW() */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `formas_pago`
@@ -377,4 +394,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-17 12:26:36
+-- Dump completed on 2014-09-17 15:06:36
