@@ -1,7 +1,7 @@
 ;$(document).ready(function() {
     $('#myCarousel').carousel();
 
-    $('#article-form').on('submit', function(e) {
+    $('#article-form, #purchase-form').on('submit', function(e) {
         $('.alert.alert-error').hide().html('');
         var hasErrors = false;
         $(this).find('input, select, textarea').each(function() {

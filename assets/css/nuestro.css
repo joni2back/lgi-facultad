@@ -89,3 +89,13 @@ iframe.google-map {
 .well, input, select, textarea, .bootstrap-tagsinput {
     border-radius: 0px!important;
 }
+
+.full-width{
+    width:99.9%;
+}
+
+#purchase-form input,
+#purchase-form select,
+#purchase-form textarea {
+    width:97%
+}

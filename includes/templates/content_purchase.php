@@ -1,13 +1,19 @@
 <?php
 
 $errorMsg = '';
-$articleId = $app->io->getRequest('articulo');
-$article = $app->getArticleById($articleId);
+$article_id = $app->io->getRequest('articulo');
+$name = $app->io->getPost('name');
+$email = $app->io->getPost('email');
+$phone = $app->io->getPost('phone');
+$message = $app->io->getPost('message');
 
+$article = $app->getArticleById($article_id);
 
-if (! $article) {
-    $errorMsg = 'No se ha encontrado el articulo';
+$successId = false;
+if ($article && $app->io->getPost()) {
+    $successId = $app->addQuestion($app->io->getPost(), $article_id);
 }
+
 ?>
 
 <div class="container">
@@ -16,7 +22,7 @@ if (! $article) {
         <?php if (! $article) { ?>
             <div class="row mt10">
                 <div class="span12">
-                    <h1 class=""><?php echo $errorMsg; ?></h1>
+                    <h1 class="">No se ha encontrado el articulo</h1>
                 </div>
             </div>
 
@@ -33,10 +39,10 @@ if (! $article) {
                     <img src="assets/images/contact-big-icon.png" alt="" style="width:100%"/>
                 </div>
                 <div class="span5">
-                    <form method="post" action="">
+                    <form method="post" action="" id="purchase-form">
                       <fieldset>
                           <legend>
-                              Item:
+                              Articulo:
                               <a href="index.php?page=item&id=<?php echo $article->id; ?>">
                                   <b><?php echo $article->title; ?></b>
                               </a>
@@ -44,19 +50,30 @@ if (! $article) {
                         <?php if ($app->io->getPost()) { ?>
                             Su consulta ha sido enviada, lo contactaremos a la brevedad.
                         <?php } else { ?>
-                            <label>Nombre</label>
-                            <input type="text" name="name" placeholder="Ingrese su nombre...">
-                            <label>Email</label>
-                            <input type="text" placeholder="Ingrese su email...">
-                            <label>Telefono</label>
-                            <input type="text" placeholder="Ingrese su telefono...">
-                            <label>Mensaje</label>
-                            <textarea rows="3"></textarea>
+                            <div>
+                                <label>Nombre</label>
+                                <input type="text" name="name" placeholder="Ingrese su nombre..."/>
+                                <div class="alert alert-error hide"></div>
+                            </div>
 
-                            <label class="radio">
-                              <input type="radio" name="contact_type" checked="checked" disabled="disabled"> Contacto por compra
-                            </label>
-                            <button type="submit" class="btn">Enviar consulta</button>
+                            <div>
+                                <label>Email</label>
+                                <input type="text" name="email" placeholder="Ingrese su email..."/>
+                                <div class="alert alert-error hide"></div>
+                            </div>
+
+                            <div>
+                                <label>Telefono</label>
+                                <input type="text" name="phone" placeholder="Ingrese su telefono..."/>
+                                <div class="alert alert-error hide"></div>
+                            </div>
+
+                            <div>
+                                <label>Mensaje</label>
+                                <textarea name="message" rows="3" placeholder="Ingrese el mensaje..."></textarea>
+                                <div class="alert alert-error hide"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar consulta</button>
                         <?php } ?>
                       </fieldset>
                     </form>
@@ -64,5 +81,5 @@ if (! $article) {
             </div>
         <?php } ?>
     </div>
-</div><!-- /.container -->
+</div>
 

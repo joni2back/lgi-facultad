@@ -125,6 +125,44 @@ class Application
         return $success ? $this->db->getLastRecordId() : false;
     }
 
+    public function getQuestions($limit = 50)
+    {
+        $limit = (int) $limit;
+        $queryString = ""
+            . "SELECT consultas.*, "
+                . "articles.title AS article_title, "
+                . "article_types.name AS article_type, "
+                . "article_categories.name AS article_category "
+            . "FROM consultas "
+                . "INNER JOIN articles ON consultas.article_id = articles.id "
+                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id "
+                . "INNER JOIN article_types ON articles.id_article_type = article_types.id "
+            . "LIMIT {$limit}";
+
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function addQuestion($question, $articleId)
+    {
+        $question = (object) $question;
+
+        $queryString = ""
+            . "INSERT INTO consultas ("
+                . "article_id, name, email, phone, message, ip)"
+            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($articleId),
+            $this->db->escape($question->name),
+            $this->db->escape($question->email),
+            $this->db->escape($question->phone),
+            $this->db->escape($question->message),
+            $this->db->escape($this->io->getServer('REMOTE_ADDR'))
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
     public function editArticle($id, $article)
     {
         $article = (object) $article;

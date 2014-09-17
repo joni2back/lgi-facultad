@@ -21,10 +21,23 @@ if (! $app->isAdmin()) {
         <hr />
 
         <h3>Acciones: </h3>
+
+        <h4>Articulos: </h4>
         <ul class="">
-            <li><a href="index.php?page=admin-create-article" class="">Crear articulo</button>
-            <li><a href="index.php?page=admin-select-article" class="">Eliminar articulo</button>
-            <li><a href="index.php?page=admin-select-article" class="">Editar articulo</button>
+            <li><a href="index.php?page=admin-create-article" class="">Crear articulo</a></li>
+            <li><a href="index.php?page=admin-select-article" class="">Eliminar articulo</a></li>
+            <li><a href="index.php?page=admin-select-article" class="">Editar articulo</a></li>
+        </ul>
+
+        <h4>Articulos: </h4>
+        <ul class="">
+            <li><a href="index.php?page=admin-view-contacts" class="">Ver consultas</a></li>
+        </ul>
+
+        <h4>Fondos: </h4>
+        <ul class="">
+            <li><a href="index.php?page=" class="">Ingresos</a></li>
+            <li><a href="index.php?page=" class="">Egresos</a></li>
         </ul>
 
     </div>
