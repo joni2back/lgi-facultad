@@ -50,7 +50,7 @@ CREATE TABLE `article_types` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,6 @@ CREATE TABLE `articles` (
   `location` varchar(128) DEFAULT NULL,
   `address` varchar(64) DEFAULT NULL,
   `price` float DEFAULT NULL,
-  `image` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_article_category` (`id_article_category`),
   KEY `id_article_type` (`id_article_type`),
@@ -88,7 +87,7 @@ CREATE TABLE `articles` (
   CONSTRAINT `id_article_category` FOREIGN KEY (`id_article_category`) REFERENCES `article_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_article_type` FOREIGN KEY (`id_article_type`) REFERENCES `article_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_author` FOREIGN KEY (`id_author`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4233 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,8 +96,187 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` (`id`, `id_article_category`, `id_article_type`, `id_author`, `title`, `description`, `location`, `address`, `price`) VALUES (1,1,3,2,'Deptarmento de 1 Dormitorio','Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.','Rosario','San Juan 3293',52000),(2,3,1,3,'Plano piso 3 dormitorios','Estos textos hacen parecerlo un espaol que se puede leer. Muchos paquetes de autoedicin y editores de\r\n				pginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una bsqueda de \"Lorem Ipsum\" va a\r\n				dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas\r\n				versiones han evolucionado a travs de los aos, algunas veces por accidente, otras veces a propsito','Baradero','Castellanos 1929',2000);
+INSERT INTO `articles` (`id`, `id_article_category`, `id_article_type`, `id_author`, `title`, `description`, `location`, `address`, `price`) VALUES (3136,2,3,3,'Vendo Fiat 600 como nuevo','dads','Mar del tuyo','4394399',500),(4232,2,3,3,'27591','16697','Mar del tuyo','4394399',500);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bancos`
+--
+
+DROP TABLE IF EXISTS `bancos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bancos` (
+  `id_banco` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(32) NOT NULL,
+  `sucursal` varchar(32) NOT NULL,
+  `direccion` varchar(64) NOT NULL,
+  PRIMARY KEY (`id_banco`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bancos`
+--
+
+LOCK TABLES `bancos` WRITE;
+/*!40000 ALTER TABLE `bancos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bancos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `caja`
+--
+
+DROP TABLE IF EXISTS `caja`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `caja` (
+  `id_caja` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `saldo` float NOT NULL,
+  PRIMARY KEY (`id_caja`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `caja`
+--
+
+LOCK TABLES `caja` WRITE;
+/*!40000 ALTER TABLE `caja` DISABLE KEYS */;
+/*!40000 ALTER TABLE `caja` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cheques`
+--
+
+DROP TABLE IF EXISTS `cheques`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cheques` (
+  `id_cheque` int(8) NOT NULL AUTO_INCREMENT,
+  `id_tipo_cheque` int(8) NOT NULL,
+  `id_banco` int(8) NOT NULL,
+  `num_cheque` int(8) NOT NULL,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id_cheque`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cheques`
+--
+
+LOCK TABLES `cheques` WRITE;
+/*!40000 ALTER TABLE `cheques` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cheques` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conceptos`
+--
+
+DROP TABLE IF EXISTS `conceptos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conceptos` (
+  `id_concepto` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `tipos_movimientos` varchar(64) NOT NULL,
+  `detalle` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_concepto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conceptos`
+--
+
+LOCK TABLES `conceptos` WRITE;
+/*!40000 ALTER TABLE `conceptos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conceptos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `consultas`
+--
+
+DROP TABLE IF EXISTS `consultas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `consultas` (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `article_id` int(8) NOT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `email` varchar(64) NOT NULL,
+  `phone` varchar(32) DEFAULT NULL,
+  `message` text,
+  `ip` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `consultas`
+--
+
+LOCK TABLES `consultas` WRITE;
+/*!40000 ALTER TABLE `consultas` DISABLE KEYS */;
+INSERT INTO `consultas` (`id`, `article_id`, `name`, `email`, `phone`, `message`, `ip`) VALUES (2,3136,'hola','como','andas','todo bien?','192.168.1.1'),(3,3136,'Jonas Sciangu','joni2back@gmail.com','0341-4579214','Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.\r\n\r\nIus id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te. Ne quodsi nusquam legendos has, ea dicit voluptua eloquentiam pro, ad sit quas qualisque. Eos vocibus deserunt quaestio ei.\r\n','192.168.1.1');
+/*!40000 ALTER TABLE `consultas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `formas_pago`
+--
+
+DROP TABLE IF EXISTS `formas_pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `formas_pago` (
+  `id_forma_pago` int(8) NOT NULL AUTO_INCREMENT,
+  `detalle` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_forma_pago`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `formas_pago`
+--
+
+LOCK TABLES `formas_pago` WRITE;
+/*!40000 ALTER TABLE `formas_pago` DISABLE KEYS */;
+/*!40000 ALTER TABLE `formas_pago` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `movimientos_diarios`
+--
+
+DROP TABLE IF EXISTS `movimientos_diarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `movimientos_diarios` (
+  `id_movimiento` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` int(8) NOT NULL,
+  `id_concepto` int(8) NOT NULL,
+  `id_forma_pago` int(8) NOT NULL,
+  `fecha` date NOT NULL,
+  `debe` float NOT NULL,
+  `haber` float NOT NULL,
+  PRIMARY KEY (`id_movimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `movimientos_diarios`
+--
+
+LOCK TABLES `movimientos_diarios` WRITE;
+/*!40000 ALTER TABLE `movimientos_diarios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movimientos_diarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -110,7 +288,7 @@ DROP TABLE IF EXISTS `roles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `roles` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
+  `name` varchar(64) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -126,6 +304,29 @@ INSERT INTO `roles` (`id`, `name`) VALUES (1,'Cliente'),(2,'Pulicador'),(3,'Admi
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipo_cheque`
+--
+
+DROP TABLE IF EXISTS `tipo_cheque`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo_cheque` (
+  `id_tipo_cheque` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `detalle` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_tipo_cheque`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo_cheque`
+--
+
+LOCK TABLES `tipo_cheque` WRITE;
+/*!40000 ALTER TABLE `tipo_cheque` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipo_cheque` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -135,10 +336,10 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `id_role` int(2) DEFAULT NULL,
-  `username` varchar(64) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `first_name` varchar(64) DEFAULT NULL,
-  `last_name` varchar(64) DEFAULT NULL,
+  `username` varchar(64) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(64) CHARACTER SET latin1 NOT NULL,
+  `first_name` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `last_name` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_role` (`id_role`),
   CONSTRAINT `id_role` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -164,4 +365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-01 10:38:03
+-- Dump completed on 2014-09-17 11:44:56
