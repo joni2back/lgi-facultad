@@ -15,7 +15,7 @@ $price = $app->io->getPost('price');
 
 $successId = false;
 if ($app->io->getPost('title')) {
-    $successId = $app->addArticle($app->io->getPost(), $app->io->getSession('user')->id);
+    $successId = $app->addArticle($app->io->getPost(), $app->io->getSession('user')->id_user);
 }
 
 ?>

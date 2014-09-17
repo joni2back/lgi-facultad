@@ -24,7 +24,7 @@ if (! $app->isAdmin()) {
                         <dt class="mb10">
                             <big><?php echo $question->article_title; ?></big>
                             (<?php echo $question->article_category; ?> - <?php echo $question->article_type; ?>) -
-                            <a href="index.php?page=item&id="<?php echo $question->article_id; ?>">Ir al articulo</a>
+                            <a href="index.php?page=item&id=<?php echo $question->id_article; ?>">Ir al articulo</a>
                         </dt>
                         <dd>
                             <p><?php echo $question->message; ?></p>

@@ -19,7 +19,7 @@
                 <form method="post" action="">
                   <fieldset>
                     <legend>Contacto online</legend>
-                    <?php if ($_POST) { ?>
+                    <?php if ($app->io->getPost()) { ?>
                         Su consulta ha sido enviada, lo contactaremos a la brevedad.
                     <?php } else { ?>
                         <label>Nombre</label>

@@ -43,7 +43,7 @@ if ($article && $app->io->getPost()) {
                       <fieldset>
                           <legend>
                               Articulo:
-                              <a href="index.php?page=item&id=<?php echo $article->id; ?>">
+                              <a href="index.php?page=item&id=<?php echo $article->id_article; ?>">
                                   <b><?php echo $article->title; ?></b>
                               </a>
                           </legend>

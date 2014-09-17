@@ -39,7 +39,7 @@ class Application
 
     public function getArticles()
     {
-        $queryString = "SELECT id, title FROM articles";
+        $queryString = "SELECT id_article, title FROM articles";
         return $this->db->query($queryString)->getResults();
     }
 
@@ -51,7 +51,7 @@ class Application
             . "WHERE name LIKE '{$name}%' LIMIT 1";
 
         $category = $this->db->query($queryString)->getOne();
-        return $category ? $category->id : null;
+        return $category ? $category->id_article_category : null;
     }
 
     public function getUserByCredentials($username, $password)
@@ -59,7 +59,7 @@ class Application
         $password = $this->hashPassword($password);
         $queryString = ""
             . "SELECT users.*, roles.name AS role FROM users "
-            . "INNER JOIN roles ON users.id_role = roles.id "
+            . "INNER JOIN roles ON users.id_role = roles.id_role "
             . "WHERE username='{$username}' AND password='{$password}' LIMIT 1";
 
         return $this->db->query($queryString)->getOne();
@@ -74,10 +74,10 @@ class Application
                 . "article_types.name AS article_type, "
                 . "article_categories.name AS article_category "
             . "FROM articles "
-                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id "
-                . "INNER JOIN article_types ON articles.id_article_type = article_types.id "
-                . "INNER JOIN users ON articles.id_author = users.id "
-            . "WHERE articles.id='{$id}' LIMIT 1";
+                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id_article_category "
+                . "INNER JOIN article_types ON articles.id_article_type = article_types.id_article_type "
+                . "INNER JOIN users ON articles.id_author = users.id_user "
+            . "WHERE articles.id_article='{$id}' LIMIT 1";
 
         return $this->db->query($queryString)->getOne();
     }
@@ -93,10 +93,10 @@ class Application
                 . "article_types.name AS article_type, "
                 . "article_categories.name AS article_category "
             . "FROM articles "
-                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id "
-                . "INNER JOIN article_types ON articles.id_article_type = article_types.id "
-                . "INNER JOIN users ON articles.id_author = users.id "
-            . "WHERE articles.id_article_category='{$categoryId}' AND articles.id != '{$except}' LIMIT {$limit}";
+                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id_article_category "
+                . "INNER JOIN article_types ON articles.id_article_type = article_types.id_article_type "
+                . "INNER JOIN users ON articles.id_author = users.id_user "
+            . "WHERE articles.id_article_category='{$categoryId}' AND articles.id_article != '{$except}' LIMIT {$limit}";
 
         return $this->db->query($queryString)->getResults();
     }
@@ -134,9 +134,9 @@ class Application
                 . "article_types.name AS article_type, "
                 . "article_categories.name AS article_category "
             . "FROM consultas "
-                . "INNER JOIN articles ON consultas.article_id = articles.id "
-                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id "
-                . "INNER JOIN article_types ON articles.id_article_type = article_types.id "
+                . "INNER JOIN articles ON consultas.id_article = articles.id_article "
+                . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id_article_category "
+                . "INNER JOIN article_types ON articles.id_article_type = article_types.id_article_type "
             . "LIMIT {$limit}";
 
         return $this->db->query($queryString)->getResults();
@@ -172,7 +172,7 @@ class Application
                 . "id_article_category = '%s', id_article_type = '%s', "
                 . "title = '%s', description = '%s', location = '%s', "
                 . "address = '%s', price = '%s' "
-            . " WHERE id = '%s';";
+            . " WHERE id_article = '%s';";
 
         $queryString = sprintf($queryString,
             $this->db->escape($article->id_article_category),
@@ -191,14 +191,14 @@ class Application
     public function deleteArticle($id)
     {
         $id = (int) $id;
-        $queryString = "DELETE FROM articles WHERE id = '{$id}';";
+        $queryString = "DELETE FROM articles WHERE id_article = '{$id}';";
         return $this->db->query($queryString)->getResponse();
     }
 
     public function loginUser($userResult)
     {
         @session_start();
-        if (! (isset($userResult->id) && isset($userResult->username))) {
+        if (! (isset($userResult->id_user) && isset($userResult->username))) {
             return false;
         }
 

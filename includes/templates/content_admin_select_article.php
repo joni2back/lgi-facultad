@@ -27,7 +27,7 @@ $articles = $app->getArticles();
                     <input type="hidden" name="page" value="admin-edit-article" />
                     <select name="id" class="span12">
                         <?php foreach($app->getArticles() as $article) { ?>
-                            <option <?php echo $article->id == null ? 'selected="selected"':''; ?> value="<?php echo $article->id; ?>"><?php echo $article->title; ?></option>
+                            <option <?php echo $article->id_article == null ? 'selected="selected"':''; ?> value="<?php echo $article->id_article; ?>"><?php echo $article->title; ?></option>
                         <?php } ?>
                     </select>
                     <button type="submit" class="btn btn-primary span1 pull-right">Ir</button>

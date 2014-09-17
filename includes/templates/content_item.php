@@ -48,7 +48,7 @@ $article = $app->getArticleById($articleId);
                 <ul class="unstyled">
                     <li><h2><?php echo '$' . $article->price; ?></h2></li>
                     <li>
-                        <a class="btn btn-large btn-success" href="index.php?page=purchase&articulo=<?php echo $article->id; ?>">Comprar</a>
+                        <a class="btn btn-large btn-success" href="index.php?page=purchase&articulo=<?php echo $article->id_article; ?>">Comprar</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@ $article = $app->getArticleById($articleId);
         <div class="mt50">
             <h3>Articulos relacionados</h3>
             <div class="row-fluid">
-                <?php foreach ($app->getArticlesByCategory($article->id_article_category, 4, $article->id) as $relatedArticle) { ?>
+                <?php foreach ($app->getArticlesByCategory($article->id_article_category, 4, $article->id_article) as $relatedArticle) { ?>
                     <div class="span3 text-center">
                         <a href="index.php?page=item&id=<?php echo $relatedArticle->id; ?>">
                             <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">

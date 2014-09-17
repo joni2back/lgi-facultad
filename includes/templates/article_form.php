@@ -17,7 +17,7 @@
           <select name="id_article_category" class="span12">
               <option value="">Seleccione la categoria...</option>
               <?php foreach($app->getArticleCategories() as $category) { ?>
-                  <option <?php echo $category->id == $id_article_category ? 'selected="selected"':''; ?> value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
+                  <option <?php echo $category->id_article_category == $id_article_category ? 'selected="selected"':''; ?> value="<?php echo $category->id_article_category; ?>"><?php echo $category->name; ?></option>
               <?php } ?>
           </select>
           <div class="alert alert-error hide"></div>
@@ -28,7 +28,7 @@
           <select name="id_article_type" class="span12">
               <option value="">Seleccione el tipo...</option>
               <?php foreach($app->getArticleTypes() as $type) { ?>
-                  <option <?php echo $type->id == $id_article_type ? 'selected="selected"':''; ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                  <option <?php echo $type->id_article_type == $id_article_type ? 'selected="selected"':''; ?> value="<?php echo $type->id_article_type; ?>"><?php echo $type->name; ?></option>
               <?php } ?>
           </select>
           <div class="alert alert-error hide"></div>
