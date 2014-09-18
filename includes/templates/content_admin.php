@@ -36,8 +36,12 @@ if (! $app->isAdmin()) {
 
         <h4>Fondos: </h4>
         <ul class="">
-            <li><a href="index.php?page=" class="">Ingresos</a></li>
-            <li><a href="index.php?page=" class="">Egresos</a></li>
+            <li><a href="index.php?page=admin-create-bank" class="">Alta bancos</a></li>
+            <li><a href="index.php?page=admin-create-cheque-tipo" class="">Alta tipo de cheques</a></li>
+            <li><a href="index.php?page=admin-create-forma-pago" class="">Alta tipo de formas de pago</a></li>
+            <li><a href="index.php?page=admin-create-concepto" class="">Alta conceptos</a></li>
+            <li><a href="index.php?page=admin-create-cheque" class="">Alta cheques</a></li>
+            <li><a href="index.php?page=admin-create-movimiento-diario" class="">Movimientos diarios</a></li>
         </ul>
 
     </div>

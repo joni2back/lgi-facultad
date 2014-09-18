@@ -31,6 +31,42 @@ class Application
         return $this->db->query($queryString)->getResults();
     }
 
+    public function getFormasPago()
+    {
+        $queryString = "SELECT * FROM formas_pago";
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function getBancos()
+    {
+        $queryString = "SELECT * FROM bancos";
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function getTipoCheques()
+    {
+        $queryString = "SELECT * FROM tipo_cheques";
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function getConceptos()
+    {
+        $queryString = "SELECT * FROM conceptos";
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function getUsers()
+    {
+        $queryString = "SELECT * FROM users";
+        return $this->db->query($queryString)->getResults();
+    }
+
+    public function getCheques()
+    {
+        $queryString = "SELECT * FROM cheques";
+        return $this->db->query($queryString)->getResults();
+    }
+
     public function getArticleTypes()
     {
         $queryString = "SELECT * FROM article_types";
@@ -158,6 +194,114 @@ class Application
             $this->db->escape($question->phone),
             $this->db->escape($question->message),
             $this->db->escape($this->io->getServer('REMOTE_ADDR'))
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addBank($bank)
+    {
+        $bank = (object) $bank;
+
+        $queryString = ""
+            . "INSERT INTO bancos ("
+                . "nombre, sucursal, direccion)"
+            . "VALUES ('%s', '%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($bank->nombre),
+            $this->db->escape($bank->sucursal),
+            $this->db->escape($bank->direccion)
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addMovimientoDiario($movimientoDiario)
+    {
+        $movimientoDiario = (object) $movimientoDiario;
+        $movimientoDiario->debe = str_replace(',', '.', $movimientoDiario->debe);
+        $movimientoDiario->haber = str_replace(',', '.', $movimientoDiario->haber);
+
+        $queryString = ""
+            . "INSERT INTO movimientos_diarios ("
+                . "id_user, id_concepto, id_forma_pago, fecha, debe, haber)"
+            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($movimientoDiario->id_user),
+            $this->db->escape($movimientoDiario->id_concepto),
+            $this->db->escape($movimientoDiario->id_forma_pago),
+            $this->db->escape($movimientoDiario->fecha),
+            $this->db->escape($movimientoDiario->debe),
+            $this->db->escape($movimientoDiario->haber)
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addCheque($cheque)
+    {
+        $cheque = (object) $cheque;
+        $queryString = ""
+            . "INSERT INTO cheques ("
+                . "id_tipo_cheque, id_banco, numero, fecha)"
+            . "VALUES ('%s', '%s', '%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($cheque->id_tipo_cheque),
+            $this->db->escape($cheque->id_banco),
+            $this->db->escape($cheque->numero),
+            $this->db->escape($cheque->fecha)
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addChequeTipo($chequeType)
+    {
+        $chequeType = (object) $chequeType;
+
+        $queryString = ""
+            . "INSERT INTO tipo_cheques ("
+                . "detalle)"
+            . "VALUES ('%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($chequeType->detalle)
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addFormaPago($formaPago)
+    {
+        $formaPago = (object) $formaPago;
+
+        $queryString = ""
+            . "INSERT INTO formas_pago ("
+                . "detalle)"
+            . "VALUES ('%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($formaPago->detalle)
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addConcepto($concepto)
+    {
+        $concepto = (object) $concepto;
+
+        $queryString = ""
+            . "INSERT INTO conceptos ("
+                . "tipos_movimientos, detalle)"
+            . "VALUES ('%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($concepto->tipos_movimientos),
+            $this->db->escape($concepto->detalle)
         );
         $success = $this->db->query($queryString)->getResponse();
         return $success ? $this->db->getLastRecordId() : false;

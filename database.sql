@@ -87,7 +87,7 @@ CREATE TABLE `articles` (
   CONSTRAINT `id_article_category` FOREIGN KEY (`id_article_category`) REFERENCES `article_categories` (`id_article_category`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_article_type` FOREIGN KEY (`id_article_type`) REFERENCES `article_types` (`id_article_type`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_author` FOREIGN KEY (`id_author`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4233 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3137 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ CREATE TABLE `bancos` (
   `sucursal` varchar(32) NOT NULL,
   `direccion` varchar(64) NOT NULL,
   PRIMARY KEY (`id_banco`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +122,7 @@ CREATE TABLE `bancos` (
 
 LOCK TABLES `bancos` WRITE;
 /*!40000 ALTER TABLE `bancos` DISABLE KEYS */;
+INSERT INTO `bancos` (`id_banco`, `nombre`, `sucursal`, `direccion`) VALUES (2,'Banco Rio','28','Cordoba 331 Bis');
 /*!40000 ALTER TABLE `bancos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +168,7 @@ CREATE TABLE `cheques` (
   KEY `id_banco` (`id_banco`),
   CONSTRAINT `id_banco` FOREIGN KEY (`id_banco`) REFERENCES `bancos` (`id_banco`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tipo_cheque` FOREIGN KEY (`id_tipo_cheque`) REFERENCES `tipo_cheques` (`id_tipo_cheque`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +177,7 @@ CREATE TABLE `cheques` (
 
 LOCK TABLES `cheques` WRITE;
 /*!40000 ALTER TABLE `cheques` DISABLE KEYS */;
+INSERT INTO `cheques` (`id_cheque`, `id_tipo_cheque`, `id_banco`, `numero`, `fecha`) VALUES (1,2,2,2147483647,'2014-09-30');
 /*!40000 ALTER TABLE `cheques` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +193,7 @@ CREATE TABLE `conceptos` (
   `tipos_movimientos` varchar(64) NOT NULL,
   `detalle` varchar(100) NOT NULL,
   PRIMARY KEY (`id_concepto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +202,7 @@ CREATE TABLE `conceptos` (
 
 LOCK TABLES `conceptos` WRITE;
 /*!40000 ALTER TABLE `conceptos` DISABLE KEYS */;
+INSERT INTO `conceptos` (`id_concepto`, `tipos_movimientos`, `detalle`) VALUES (1,'Movimientos de caja','Esto es para la caja');
 /*!40000 ALTER TABLE `conceptos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +225,7 @@ CREATE TABLE `consultas` (
   PRIMARY KEY (`id_consulta`),
   KEY `id_article` (`id_article`),
   CONSTRAINT `id_article` FOREIGN KEY (`id_article`) REFERENCES `articles` (`id_article`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +234,7 @@ CREATE TABLE `consultas` (
 
 LOCK TABLES `consultas` WRITE;
 /*!40000 ALTER TABLE `consultas` DISABLE KEYS */;
-INSERT INTO `consultas` (`id_consulta`, `id_article`, `name`, `email`, `phone`, `message`, `fecha`, `ip`) VALUES (1,3136,'Carlos Almagro','carlitos@mixmail.com','0341-4579214','Sometimes we encounter odd application responses that seem to make no sense. One of these such issues is related to running virtual server instances (OS Containers not Para-Virtualized VMs) and attempting to back up their data to Amazonâ€™s S3 cloud storage. For moderately sized virtual machines running MySQL databases or Python/PHP based websites and code repositories this can be an inexpensive, quickly provisioned, and easy way to provide disaster recovery backups in numerous geographic locations, since we generally want DR content to be located in a physically distant location. Nevertheless, we can encounter errors if using an S3 mount in a distance location from our server if the timezone/sync data is incorrect.','2014-09-17 15:03:02','192.168.1.1');
+INSERT INTO `consultas` (`id_consulta`, `id_article`, `name`, `email`, `phone`, `message`, `fecha`, `ip`) VALUES (1,3136,'Carlos Almagro','carlitos@mixmail.com','0341-4579214','Sometimes we encounter odd application responses that seem to make no sense. One of these such issues is related to running virtual server instances (OS Containers not Para-Virtualized VMs) and attempting to back up their data to Amazonâ€™s S3 cloud storage. For moderately sized virtual machines running MySQL databases or Python/PHP based websites and code repositories this can be an inexpensive, quickly provisioned, and easy way to provide disaster recovery backups in numerous geographic locations, since we generally want DR content to be located in a physically distant location. Nevertheless, we can encounter errors if using an S3 mount in a distance location from our server if the timezone/sync data is incorrect.','2014-09-17 15:03:02','192.168.1.1'),(2,3136,'Dante Spinetta','dante@mixmail.com','0341-4579214','Sometimes we encounter odd application responses that seem to make no sense. One of these such issues is related to running virtual server instances (OS Containers not Para-Virtualized VMs) and attempting to back up their data to Amazonâ€™s S3 cloud storage. For moderately sized virtual machines running MySQL databases.','2014-09-17 15:14:37','192.168.1.1');
 /*!40000 ALTER TABLE `consultas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -262,7 +265,7 @@ CREATE TABLE `formas_pago` (
   `id_forma_pago` int(8) NOT NULL AUTO_INCREMENT,
   `detalle` varchar(100) NOT NULL,
   PRIMARY KEY (`id_forma_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,6 +274,7 @@ CREATE TABLE `formas_pago` (
 
 LOCK TABLES `formas_pago` WRITE;
 /*!40000 ALTER TABLE `formas_pago` DISABLE KEYS */;
+INSERT INTO `formas_pago` (`id_forma_pago`, `detalle`) VALUES (1,'Efectivo');
 /*!40000 ALTER TABLE `formas_pago` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,8 +291,8 @@ CREATE TABLE `movimientos_diarios` (
   `id_concepto` int(8) NOT NULL,
   `id_forma_pago` int(8) NOT NULL,
   `fecha` date NOT NULL,
-  `debe` float NOT NULL,
-  `haber` float NOT NULL,
+  `debe` float(5,2) NOT NULL,
+  `haber` float(5,2) NOT NULL,
   PRIMARY KEY (`id_movimiento`),
   KEY `id_user` (`id_user`),
   KEY `id_forma_pago` (`id_forma_pago`),
@@ -296,7 +300,7 @@ CREATE TABLE `movimientos_diarios` (
   CONSTRAINT `id_concepto` FOREIGN KEY (`id_concepto`) REFERENCES `conceptos` (`id_concepto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_forma_pago` FOREIGN KEY (`id_forma_pago`) REFERENCES `formas_pago` (`id_forma_pago`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,6 +309,7 @@ CREATE TABLE `movimientos_diarios` (
 
 LOCK TABLES `movimientos_diarios` WRITE;
 /*!40000 ALTER TABLE `movimientos_diarios` DISABLE KEYS */;
+INSERT INTO `movimientos_diarios` (`id_movimiento`, `id_user`, `id_concepto`, `id_forma_pago`, `fecha`, `debe`, `haber`) VALUES (1,1,1,1,'2014-09-10',32132.00,3232.00),(2,1,1,1,'2014-09-10',32132.00,3232.00),(3,1,1,1,'2014-09-10',321.00,66.00),(4,1,1,1,'2014-09-10',55.00,55.00),(5,1,1,1,'2014-09-10',55.00,55.00),(6,1,1,1,'2014-09-10',55.00,55.00),(7,1,1,1,'2014-09-10',55.00,55.00),(8,1,1,1,'2014-09-10',55.20,55.20);
 /*!40000 ALTER TABLE `movimientos_diarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,7 +348,7 @@ CREATE TABLE `tipo_cheques` (
   `id_tipo_cheque` int(8) NOT NULL AUTO_INCREMENT,
   `detalle` varchar(100) NOT NULL,
   PRIMARY KEY (`id_tipo_cheque`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,6 +357,7 @@ CREATE TABLE `tipo_cheques` (
 
 LOCK TABLES `tipo_cheques` WRITE;
 /*!40000 ALTER TABLE `tipo_cheques` DISABLE KEYS */;
+INSERT INTO `tipo_cheques` (`id_tipo_cheque`, `detalle`) VALUES (1,'Cheque Vencido'),(2,'Cheque Rechazado');
 /*!40000 ALTER TABLE `tipo_cheques` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,4 +400,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-17 15:06:36
+-- Dump completed on 2014-09-18 11:48:28
