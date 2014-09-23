@@ -17,6 +17,8 @@ if ($id_user && $id_concepto && $id_forma_pago) {
     $successId = $app->addMovimientoDiario($app->io->getPost());
 }
 
+$suma_debe = $suma_haber = 0;
+
 ?>
 
 <div class="container">
@@ -27,6 +29,19 @@ if ($id_user && $id_concepto && $id_forma_pago) {
             <li><a href="index.php?page=admin">Administrador</a> <span class="divider">/</span></li>
             <li class="active">Crear movimientos diarios</li>
         </ul>
+
+
+        <?php foreach($app->getMovimientos() as $movimiento) { ?>
+            <?php $suma_debe += $movimiento->debe; ?>
+            <?php $suma_haber += $movimiento->haber; ?>
+            <hr><?php print_r($movimiento); ?><hr>
+            <b>Debe: <?php echo $suma_debe; ?></b>
+            <b>Haber: <?php echo $suma_haber; ?></b>
+        <?php } ?>
+
+            <h3>Total Debe: <?php echo $suma_debe; ?></h3>
+            <h3>Total Haber: <?php echo $suma_haber; ?></h3>
+            <h3>Total: <?php echo ($suma_haber - $suma_debe); ?></h3>
 
         <div class="row-fluid">
             <div class="span12">

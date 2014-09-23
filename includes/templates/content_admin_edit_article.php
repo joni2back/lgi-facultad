@@ -18,7 +18,7 @@ $article = $app->getArticleById($articleId);
 //$address = $app->io->getPost('address');
 //$price = $app->io->getPost('price');
 
-$successId = false;
+$success = false;
 $deletedOk = false;
 if ($article) {
     $title = $article->title;

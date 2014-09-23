@@ -41,15 +41,38 @@
       </div>
 
       <div class="span4">
-          <label>Debe (decimales separados por puntos)</label>
-          <input type="number" step="any" name="debe" placeholder="Ingrese la deuda..." class="span12" value="<?php echo $debe; ?>"/>
+          <label>Tipo de movimiento</label>
+          <label class="radio inline"><input type="radio" name="type" class="" value="debe"/> Debe (resta)</label>
+          <label class="radio inline"><input type="radio" name="type" class="" value="haber"/> Haber (suma)</label>
           <div class="alert alert-error hide"></div>
       </div>
 
       <div class="span4">
-          <label>Haber (decimales separados por puntos)</label>
-          <input type="text" name="haber" placeholder="Ingrese el haber..." class="span12" value="<?php echo $haber; ?>"/>
-          <div class="alert alert-error hide"></div>
+          <div id="debe">
+            <label>Debe (decimales separados por puntos)</label>
+            <input type="number" step="any" name="debe" placeholder="Ingrese la deuda..." class="span12" value="<?php echo $debe; ?>"/>
+            <div class="alert alert-error hide"></div>
+          </div>
+          <div id="haber">
+            <label>Haber (decimales separados por puntos)</label>
+            <input type="text" name="haber" placeholder="Ingrese el haber..." class="span12" value="<?php echo $haber; ?>"/>
+            <div class="alert alert-error hide"></div>
+          </div>
       </div>
   </div>
 </fieldset>
+
+<script>
+    $(document).ready(function() {
+        $('#debe, #haber').hide(0);
+        $('input[name="type"]').on('change', function() {
+            if ($(this).val() === 'debe') {
+                $('#haber').hide().find('input').val(0);
+                $('#debe').show();
+            } else {
+                $('#debe').hide().find('input').val(0);
+                $('#haber').show();
+            }
+        });
+    });
+</script>

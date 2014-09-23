@@ -178,6 +178,24 @@ class Application
         return $this->db->query($queryString)->getResults();
     }
 
+    public function getMovimientos($limit = 50)
+    {
+        $limit = (int) $limit;
+        $queryString = ""
+            . "SELECT movimientos_diarios.*, "
+                . "users.*, "
+                . "conceptos.detalle AS concepto_detalle, "
+                . "conceptos.tipos_movimientos AS tipo_movimiento, "
+                . "formas_pago.detalle AS forma_pago_detalle "
+            . "FROM movimientos_diarios "
+                . "INNER JOIN formas_pago ON movimientos_diarios.id_forma_pago = formas_pago.id_forma_pago "
+                . "INNER JOIN conceptos ON movimientos_diarios.id_concepto = conceptos.id_concepto "
+                . "INNER JOIN users ON movimientos_diarios.id_user = users.id_user "
+            . "ORDER BY movimientos_diarios.fecha DESC LIMIT {$limit}";
+
+        return $this->db->query($queryString)->getResults();
+    }
+
     public function addQuestion($question, $articleId)
     {
         $question = (object) $question;
