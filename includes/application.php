@@ -31,6 +31,16 @@ class Application
         return $this->db->query($queryString)->getResults();
     }
 
+    public function getArticleCategory($categoryId)
+    {
+        $categoryId = (int) $categoryId;
+        $queryString = ""
+            . "SELECT * FROM article_categories "
+            . "WHERE article_categories.id_article_category = '{$categoryId}' "
+            . "LIMIT 1";
+        return $this->db->query($queryString)->getOne();
+    }
+
     public function getFormasPago()
     {
         $queryString = "SELECT * FROM formas_pago";
@@ -132,7 +142,8 @@ class Application
                 . "INNER JOIN article_categories ON articles.id_article_category = article_categories.id_article_category "
                 . "INNER JOIN article_types ON articles.id_article_type = article_types.id_article_type "
                 . "INNER JOIN users ON articles.id_author = users.id_user "
-            . "WHERE articles.id_article_category='{$categoryId}' AND articles.id_article != '{$except}' LIMIT {$limit}";
+            . "WHERE articles.id_article_category='{$categoryId}' AND articles.id_article != '{$except}' "
+            . "ORDER BY articles.id_article_type, articles.id_article DESC LIMIT {$limit}";
 
         return $this->db->query($queryString)->getResults();
     }
@@ -380,6 +391,17 @@ class Application
         $this->io->setSession('user', null);
         $this->io->setSession('username', null);
         @session_destroy();
+    }
+
+    public function getImageByCategory($categoryId)
+    {
+        $images = array(
+            '1' => 'assets/images/depto-mini.jpg',
+            '2' => 'assets/images/parking-mini.jpg',
+            '3' => 'assets/images/piso-mini.jpg',
+            '4' => 'assets/images/local-mini.jpg',
+        );
+        return isset($images[$categoryId]) ? $images[$categoryId] : '';
     }
 
 }

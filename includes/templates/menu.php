@@ -16,10 +16,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="index.php?page=pisos">Pisos</a></li>
-                <li><a href="index.php?page=cocheras">Cocheras</a></li>
-                <li><a href="index.php?page=departamentos">Departamentos</a></li>
-                <li><a href="index.php?page=locales">Locales comerciales</a></li>
+                <?php foreach($app->getArticleCategories() as $category) { ?>
+                  <li><a href="index.php?page=articles-by-category&id=<?php echo $category->id_article_category; ?>"><?php echo $category->name; ?></a></li>
+                <?php } ?>
                 <!--
                 <li class="divider"></li>
                 <li class="nav-header">Tipos de ventas</li>

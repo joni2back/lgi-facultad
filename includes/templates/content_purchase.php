@@ -1,7 +1,7 @@
 <?php
 
 $errorMsg = '';
-$article_id = $app->io->getRequest('articulo');
+$article_id = $app->io->getRequest('id');
 $name = $app->io->getPost('name');
 $email = $app->io->getPost('email');
 $phone = $app->io->getPost('phone');
