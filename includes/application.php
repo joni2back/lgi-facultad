@@ -191,7 +191,7 @@ class Application
                 . "INNER JOIN formas_pago ON movimientos_diarios.id_forma_pago = formas_pago.id_forma_pago "
                 . "INNER JOIN conceptos ON movimientos_diarios.id_concepto = conceptos.id_concepto "
                 . "INNER JOIN users ON movimientos_diarios.id_user = users.id_user "
-            . "ORDER BY movimientos_diarios.fecha DESC LIMIT {$limit}";
+            . "ORDER BY movimientos_diarios.fecha, movimientos_diarios.id_movimiento DESC LIMIT {$limit}";
 
         return $this->db->query($queryString)->getResults();
     }

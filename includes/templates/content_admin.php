@@ -41,7 +41,8 @@ if (! $app->isAdmin()) {
             <li><a href="index.php?page=admin-create-forma-pago" class="">Alta tipo de formas de pago</a></li>
             <li><a href="index.php?page=admin-create-concepto" class="">Alta conceptos</a></li>
             <li><a href="index.php?page=admin-create-cheque" class="">Alta cheques</a></li>
-            <li><a href="index.php?page=admin-create-movimiento-diario" class="">Movimientos diarios</a></li>
+            <li><a href="index.php?page=admin-view-movimiento-diario" class="">Consultar movimientos</a></li>
+            <li><a href="index.php?page=admin-create-movimiento-diario" class="">Registrar movimiento</a></li>
         </ul>
 
     </div>

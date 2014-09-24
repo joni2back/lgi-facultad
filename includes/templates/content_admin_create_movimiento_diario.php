@@ -27,21 +27,8 @@ $suma_debe = $suma_haber = 0;
         <ul class="breadcrumb well">
             <li><a href="index.php?page=home">Principal</a> <span class="divider">/</span></li>
             <li><a href="index.php?page=admin">Administrador</a> <span class="divider">/</span></li>
-            <li class="active">Crear movimientos diarios</li>
+            <li class="active">Crear movimiento</li>
         </ul>
-
-
-        <?php foreach($app->getMovimientos() as $movimiento) { ?>
-            <?php $suma_debe += $movimiento->debe; ?>
-            <?php $suma_haber += $movimiento->haber; ?>
-            <hr><?php print_r($movimiento); ?><hr>
-            <b>Debe: <?php echo $suma_debe; ?></b>
-            <b>Haber: <?php echo $suma_haber; ?></b>
-        <?php } ?>
-
-            <h3>Total Debe: <?php echo $suma_debe; ?></h3>
-            <h3>Total Haber: <?php echo $suma_haber; ?></h3>
-            <h3>Total: <?php echo ($suma_haber - $suma_debe); ?></h3>
 
         <div class="row-fluid">
             <div class="span12">
@@ -49,10 +36,9 @@ $suma_debe = $suma_haber = 0;
                     <h2>Se creo correctamente el movimiento!</h2>
                     <h3>Acciones: </h3>
                     <ul class="">
-                        <li><a href="index.php?page=item&id=<?php echo $successId; ?>">Ir al articulo</a></li>
-                        <li><a href="index.php?page=admin-edit-article&id=<?php echo $successId; ?>">Editarlo</a></li>
-                        <li><a href="index.php?page=admin-edit-article&id=<?php echo $successId; ?>">Eliminarlo</a></li>
-                        <li><a href="index.php?page=admin-create-article" class="">Crear otro articulo</a></li>
+                        <li><a href="index.php?page=admin">Ir a la administracion</a></li>
+                        <li><a href="index.php?page=admin-view-movimiento-diario">Ver movimientos</a></li>
+                        <li><a href="index.php?page=admin-create-movimiento-diario">Crear otro movimiento</a></li>
                     </ul>
                 <?php } elseif (!$successId && $app->io->getPost()) { ?>
                     <div class="alert alert-error">No se pudo guardar el movimiento.</div>
