@@ -28,21 +28,25 @@ $suma_debe = $suma_haber = 0;
                     <th>Movimiento</th>
                     <th>Debito</th>
                     <th>Credito</th>
+                    <th>IVA</th>
                     <th>Saldo</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($app->getMovimientos() as $mov) { ?>
-                    <?php $suma_debe += $mov->debe; ?>
-                    <?php $suma_haber += $mov->haber; ?>
+                    <?php $debe_iva = ($mov->debe * $mov->iva / 100) + $mov->debe; ?>
+                    <?php $haber_iva = ($mov->haber * $mov->iva / 100) + $mov->haber; ?>
+                    <?php $suma_debe += $debe_iva; ?>
+                    <?php $suma_haber += $haber_iva; ?>
                     <tr>
                         <td><?php echo $mov->fecha; ?></td>
                         <td><?php echo $mov->first_name . ' ' .$mov->last_name; ?></td>
                         <td><?php echo $mov->concepto_detalle; ?></td>
                         <td><?php echo $mov->forma_pago_detalle; ?></td>
                         <td><?php echo $mov->tipo_movimiento; ?></td>
-                        <td><?php echo (int)$mov->debe ? '-'.$mov->debe : ''; ?></td>
-                        <td><?php echo (int)$mov->haber ? '+'.$mov->haber : ''; ?></td>
+                        <td><?php echo (int)$debe_iva ? '-'.$debe_iva : ''; ?></td>
+                        <td><?php echo (int)$haber_iva ? '+'.$haber_iva : ''; ?></td>
+                        <td><?php echo (int)$mov->iva; ?></td>
                         <td><b><?php echo ($suma_haber - $suma_debe); ?></b></td>
                     </tr>
                 <?php } ?>

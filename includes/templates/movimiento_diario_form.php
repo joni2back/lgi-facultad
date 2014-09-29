@@ -44,6 +44,7 @@
           <label>Tipo de movimiento</label>
           <label class="radio inline"><input type="radio" name="type" class="" value="debe"/> Debe (resta)</label>
           <label class="radio inline"><input type="radio" name="type" class="" value="haber"/> Haber (suma)</label>
+          <label class="checkbox "><input type="checkbox" name="iva" value="<?php echo APP_MOVIMIENTOS_IVA; ?>"/> Aplica IVA (Monto +<?php echo APP_MOVIMIENTOS_IVA; ?>%)</label>
           <div class="alert alert-error hide"></div>
       </div>
 
@@ -60,12 +61,16 @@
           </div>
       </div>
   </div>
+    <div class="pull-right">
+        <h3>Total: $<span id="total-final">0</span></h3>
+    </div>
 </fieldset>
 
 <script>
     $(document).ready(function() {
         $('#debe, #haber').hide(0);
         $('input[name="type"]').on('change', function() {
+            $('#total-final').html(0);
             if ($(this).val() === 'debe') {
                 $('#haber').hide().find('input').val(0);
                 $('#debe').show();
@@ -73,6 +78,21 @@
                 $('#debe').hide().find('input').val(0);
                 $('#haber').show();
             }
+        });
+
+        var callback = function() {
+            var total = 0 + parseInt($('input[name="debe"]').val()) + parseInt($('input[name="haber"]').val());
+            if ($('input[name="iva"]').is(':checked')) {
+                total = (total * <?php echo APP_MOVIMIENTOS_IVA; ?> /100) + total;
+            }
+            $('#total-final').html(total || 0);
+        };
+
+        $('input[name="debe"], input[name="haber"]').on('keyup', function() {
+            typeof callback === 'function' && callback();
+        });
+        $('input[name="iva"]').on('change', function() {
+            typeof callback === 'function' && callback();
         });
     });
 </script>

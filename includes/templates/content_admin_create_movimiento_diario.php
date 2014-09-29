@@ -8,6 +8,7 @@ if (! $app->isAdmin()) {
 $id_user = $app->io->getPost('id_user');
 $id_concepto = $app->io->getPost('id_concepto');
 $id_forma_pago = $app->io->getPost('id_forma_pago');
+$iva = $app->io->getPost('iva');
 $fecha = $app->io->getPost('fecha');
 $debe = $app->io->getPost('debe');
 $haber = $app->io->getPost('haber');

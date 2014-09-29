@@ -246,24 +246,26 @@ class Application
         return $success ? $this->db->getLastRecordId() : false;
     }
 
-    public function addMovimientoDiario($movimientoDiario)
+    public function addMovimientoDiario($mov)
     {
-        $movimientoDiario = (object) $movimientoDiario;
-        $movimientoDiario->debe = str_replace(',', '.', $movimientoDiario->debe);
-        $movimientoDiario->haber = str_replace(',', '.', $movimientoDiario->haber);
-
+        $mov = (object) $mov;
+        $mov->debe = str_replace(',', '.', $mov->debe);
+        $mov->haber = str_replace(',', '.', $mov->haber);
+        $mov->iva = isset($mov->iva) ? $mov->iva : 0;
+        
         $queryString = ""
             . "INSERT INTO movimientos_diarios ("
-                . "id_user, id_concepto, id_forma_pago, fecha, debe, haber)"
-            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s');";
+                . "id_user, id_concepto, id_forma_pago, fecha, debe, haber, iva)"
+            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');";
 
         $queryString = sprintf($queryString,
-            $this->db->escape($movimientoDiario->id_user),
-            $this->db->escape($movimientoDiario->id_concepto),
-            $this->db->escape($movimientoDiario->id_forma_pago),
-            $this->db->escape($movimientoDiario->fecha),
-            $this->db->escape($movimientoDiario->debe),
-            $this->db->escape($movimientoDiario->haber)
+            $this->db->escape($mov->id_user),
+            $this->db->escape($mov->id_concepto),
+            $this->db->escape($mov->id_forma_pago),
+            $this->db->escape($mov->fecha),
+            $this->db->escape($mov->debe),
+            $this->db->escape($mov->haber),
+            $this->db->escape($mov->iva)
         );
         $success = $this->db->query($queryString)->getResponse();
         return $success ? $this->db->getLastRecordId() : false;

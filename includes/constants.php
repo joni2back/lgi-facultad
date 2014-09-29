@@ -9,3 +9,5 @@ define('MYSQL_USER', 'root');
 define('MYSQL_PASS', 'root');
 define('MYSQL_HOST', 'localhost');
 define('MYSQL_DATABASE', 'lgi');
+
+define('APP_MOVIMIENTOS_IVA', 21);
