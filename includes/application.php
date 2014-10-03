@@ -41,6 +41,12 @@ class Application
         return $this->db->query($queryString)->getOne();
     }
 
+    public function getRoles()
+    {
+        $queryString = "SELECT * FROM roles";
+        return $this->db->query($queryString)->getResults();
+    }
+
     public function getFormasPago()
     {
         $queryString = "SELECT * FROM formas_pago";
@@ -91,7 +97,6 @@ class Application
 
     public function getArticleCategoryByName($name)
     {
-        $password = $this->hashPassword($password);
         $queryString = ""
             . "SELECT * FROM article_categories "
             . "WHERE name LIKE '{$name}%' LIMIT 1";
@@ -107,6 +112,16 @@ class Application
             . "SELECT users.*, roles.name AS role FROM users "
             . "INNER JOIN roles ON users.id_role = roles.id_role "
             . "WHERE username='{$username}' AND password='{$password}' LIMIT 1";
+
+        return $this->db->query($queryString)->getOne();
+    }
+
+    public function getUserById($userId)
+    {
+        $queryString = ""
+            . "SELECT users.*, roles.name AS role FROM users "
+            . "INNER JOIN roles ON users.id_role = roles.id_role "
+            . "WHERE id_user='{$userId}' LIMIT 1";
 
         return $this->db->query($queryString)->getOne();
     }
@@ -167,6 +182,27 @@ class Application
             $this->db->escape($article->location),
             $this->db->escape($article->address),
             $this->db->escape($article->price)
+        );
+        $success = $this->db->query($queryString)->getResponse();
+        return $success ? $this->db->getLastRecordId() : false;
+    }
+
+    public function addUser($user)
+    {
+        $user = (object) $user;
+        $user->password = $this->hashPassword($user->password);
+
+        $queryString = ""
+            . "INSERT INTO users ("
+                . "id_role, username, password, first_name, last_name) "
+            . "VALUES ('%s', '%s', '%s', '%s', '%s');";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape((int) $user->id_role),
+            $this->db->escape($user->username),
+            $this->db->escape($user->password),
+            $this->db->escape($user->first_name),
+            $this->db->escape($user->last_name)
         );
         $success = $this->db->query($queryString)->getResponse();
         return $success ? $this->db->getLastRecordId() : false;
@@ -252,7 +288,7 @@ class Application
         $mov->debe = str_replace(',', '.', $mov->debe);
         $mov->haber = str_replace(',', '.', $mov->haber);
         $mov->iva = isset($mov->iva) ? $mov->iva : 0;
-        
+
         $queryString = ""
             . "INSERT INTO movimientos_diarios ("
                 . "id_user, id_concepto, id_forma_pago, fecha, debe, haber, iva)"
@@ -360,6 +396,39 @@ class Application
             $this->db->escape((int) $id)
         );
 
+        return $this->db->query($queryString)->getResponse();
+    }
+
+    public function editUser($id, $user)
+    {
+        $user = (object) $user;
+        $user->password = $this->hashPassword($user->password);
+        $queryString = ""
+            . "UPDATE users SET "
+                . "id_role = '%s', username = '%s', "
+                . "password = '%s', first_name = '%s', last_name = '%s' "
+            . " WHERE id_user = '%s';";
+
+        $queryString = sprintf($queryString,
+            $this->db->escape($user->id_role),
+            $this->db->escape($user->username),
+            $this->db->escape($user->password),
+            $this->db->escape($user->first_name),
+            $this->db->escape($user->last_name),
+            $this->db->escape((int) $id)
+        );
+
+        $success = $this->db->query($queryString)->getResponse();
+        if ($success && $id === $this->io->getSession('user')->id_user) {
+            $this->loginUser($this->getUserById($id));
+        }
+        return $success;
+    }
+
+    public function deleteUser($id)
+    {
+        $id = (int) $id;
+        $queryString = "DELETE FROM users WHERE id_user = '{$id}';";
         return $this->db->query($queryString)->getResponse();
     }
 

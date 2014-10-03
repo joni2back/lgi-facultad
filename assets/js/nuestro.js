@@ -16,6 +16,6 @@
     });
 
     $('button[type="submit"][value="delete"]').on('click', function(e) {
-        !confirm('Desea realmente borrar el articulo?') && e.preventDefault();
+        !confirm('Desea realmente borrar el registro?') && e.preventDefault();
     });
 });

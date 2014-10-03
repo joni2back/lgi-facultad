@@ -22,6 +22,13 @@ if (! $app->isAdmin()) {
 
         <h3>Acciones: </h3>
 
+        <h4>Usuarios: </h4>
+        <ul class="">
+            <li><a href="index.php?page=admin-create-user" class="">Crear usuario</a></li>
+            <li><a href="index.php?page=admin-select-user" class="">Modificar usuario</a></li>
+            <li><a href="index.php?page=admin-select-user" class="">Eliminar usuario</a></li>
+        </ul>
+
         <h4>Articulos: </h4>
         <ul class="">
             <li><a href="index.php?page=admin-create-article" class="">Crear articulo</a></li>
