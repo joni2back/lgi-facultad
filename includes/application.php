@@ -79,7 +79,11 @@ class Application
 
     public function getCheques()
     {
-        $queryString = "SELECT * FROM cheques";
+        $queryString = ""
+            . "SELECT cheques.*, bancos.nombre as banco, tipo_cheques.detalle as tipo_cheque "
+            . "FROM cheques "
+            . "INNER JOIN tipo_cheques ON cheques.id_tipo_cheque = tipo_cheques.id_tipo_cheque "
+            . "INNER JOIN bancos ON cheques.id_banco = bancos.id_banco; ";
         return $this->db->query($queryString)->getResults();
     }
 
@@ -312,14 +316,17 @@ class Application
         $cheque = (object) $cheque;
         $queryString = ""
             . "INSERT INTO cheques ("
-                . "id_tipo_cheque, id_banco, numero, fecha)"
-            . "VALUES ('%s', '%s', '%s', '%s');";
+                . "id_tipo_cheque, id_banco, numero, importe, fecha_emision, fecha_cobro, fecha_vencimiento)"
+            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');";
 
         $queryString = sprintf($queryString,
             $this->db->escape($cheque->id_tipo_cheque),
             $this->db->escape($cheque->id_banco),
             $this->db->escape($cheque->numero),
-            $this->db->escape($cheque->fecha)
+            $this->db->escape($cheque->importe),
+            $this->db->escape($cheque->fecha_emision),
+            $this->db->escape($cheque->fecha_cobro),
+            $this->db->escape($cheque->fecha_vencimiento)
         );
         $success = $this->db->query($queryString)->getResponse();
         return $success ? $this->db->getLastRecordId() : false;
@@ -423,6 +430,27 @@ class Application
             $this->loginUser($this->getUserById($id));
         }
         return $success;
+    }
+
+    public function getSaldoActual()
+    {
+        $suma_debe = $suma_haber = 0;
+        foreach($this->getMovimientos() as $mov) {
+            $debe_iva = ($mov->debe * $mov->iva / 100) + $mov->debe;
+            $haber_iva = ($mov->haber * $mov->iva / 100) + $mov->haber;
+            $suma_debe += $debe_iva;
+            $suma_haber += $haber_iva;
+        }
+        return $suma_haber - $suma_debe;
+    }
+
+    public function getSaldoCarteraCheques()
+    {
+        $suma = 0;
+        foreach($this->getCheques() as $cheque) {
+            $suma += $cheque->importe;
+        }
+        return $suma;
     }
 
     public function deleteUser($id)

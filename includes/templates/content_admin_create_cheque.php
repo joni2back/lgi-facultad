@@ -8,7 +8,10 @@ if (! $app->isAdmin()) {
 $id_tipo_cheque = $app->io->getPost('id_tipo_cheque');
 $id_banco = $app->io->getPost('id_banco');
 $numero = $app->io->getPost('numero');
-$fecha = $app->io->getPost('fecha');
+$importe = $app->io->getPost('importe');
+$fecha_emision = $app->io->getPost('fecha_emision');
+$fecha_cobro = $app->io->getPost('fecha_cobro');
+$fecha_vencimiento = $app->io->getPost('fecha_vencimiento');
 
 $successId = false;
 if ($id_tipo_cheque && $id_banco && $numero) {

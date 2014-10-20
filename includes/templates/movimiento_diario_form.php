@@ -15,7 +15,7 @@
           <select name="id_concepto" class="span12">
               <option value="">Seleccione el concepto...</option>
               <?php foreach($app->getConceptos() as $concepto) { ?>
-                  <option <?php echo $concepto->id_concepto == $id_concepto ? 'selected="selected"':''; ?> value="<?php echo $concepto->id_concepto; ?>"><?php echo $concepto->detalle; ?></option>
+                  <option <?php echo $concepto->id_concepto == $id_concepto ? 'selected="selected"':''; ?> value="<?php echo $concepto->id_concepto; ?>"><?php echo $concepto->tipos_movimientos; ?> - <?php echo $concepto->detalle; ?></option>
               <?php } ?>
           </select>
           <div class="alert alert-error hide"></div>
@@ -61,6 +61,17 @@
           </div>
       </div>
   </div>
+
+  <div class="row-fluid">
+      <div class="span12">
+          <label>Descripcion</label>
+          <textarea name="descripcion" placeholder="Ingrese la descripcion..." class="span12"><?php echo $descripcion; ?></textarea>
+          <div class="alert alert-error hide"></div>
+      </div>
+
+
+  </div>
+
     <div class="pull-right">
         <h3>Total: $<span id="total-final">0</span></h3>
     </div>

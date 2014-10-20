@@ -24,7 +24,7 @@ class MySQLConnection
 
     public function query($query)
     {
-        $this->_queryResponse = mysqli_query($this->_dbLink, $query);
+        $this->_queryResponse = mysqli_query($this->_dbLink, $query) or die(mysqli_error($this->_dbLink));
         return $this;
     }
 

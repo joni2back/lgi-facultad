@@ -10,6 +10,9 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+DROP DATABASE IF EXISTS `lgi`;
+CREATE DATABASE `lgi`;
+USE `lgi`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -47,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id_article`, `id_article_category`, `id_article_type`, `id_author`, `title`, `description`, `location`, `address`, `price`) VALUES
-(1, 1, 5, 3, 'Vendo Departamento 600 dormitorios como nuevo', 'Somos una empresa diversificada, que participa en la producciÃ³n y comercializaciÃ³n de semillas, fitosanitarios, nutriciÃ³n animal y vegetal, productos de jardinerÃ­a, sanidad ambiental y cuidado de mascotas. AdemÃ¡s contamos con una filial que presta servicios de mecanizaciÃ³n agrÃ­cola.\r\n\r\nContamos con especialistas en cada una de las lÃ­neas de productos que manejamos. \r\nRealizamos una permanente inversiÃ³n en tecnologÃ­a y desarrollo de productos.\r\n', 'Mar del tuyo', '4394399', 5000);
+(1, 1, 4, 3, 'Vendo Departamento 600 dormitorios como nuevo', 'Somos una empresa diversificada, que participa en la producciÃ³n y comercializaciÃ³n de semillas, fitosanitarios, nutriciÃ³n animal y vegetal, productos de jardinerÃ­a, sanidad ambiental y cuidado de mascotas. AdemÃ¡s contamos con una filial que presta servicios de mecanizaciÃ³n agrÃ­cola.\r\n\r\nContamos con especialistas en cada una de las lÃ­neas de productos que manejamos. \r\nRealizamos una permanente inversiÃ³n en tecnologÃ­a y desarrollo de productos.\r\n', 'Mar del tuyo', '4394399', 5000);
 
 -- --------------------------------------------------------
 
@@ -128,8 +131,11 @@ CREATE TABLE IF NOT EXISTS `cheques` (
   `id_cheque` int(8) NOT NULL AUTO_INCREMENT,
   `id_tipo_cheque` int(8) NOT NULL,
   `id_banco` int(8) NOT NULL,
-  `numero` int(8) NOT NULL,
-  `fecha` date NOT NULL,
+  `numero` varchar(64) NOT NULL,
+  `importe` float(8,2) NOT NULL,
+  `fecha_emision` date NOT NULL,
+  `fecha_cobro` date NOT NULL,
+  `fecha_vencimiento` date NOT NULL,
   PRIMARY KEY (`id_cheque`),
   KEY `id_tipo_cheque` (`id_tipo_cheque`),
   KEY `id_banco` (`id_banco`)
@@ -139,8 +145,8 @@ CREATE TABLE IF NOT EXISTS `cheques` (
 -- Dumping data for table `cheques`
 --
 
-INSERT INTO `cheques` (`id_cheque`, `id_tipo_cheque`, `id_banco`, `numero`, `fecha`) VALUES
-(1, 2, 2, 2147483647, '2014-09-30');
+INSERT INTO `cheques` (`id_cheque`, `id_tipo_cheque`, `id_banco`, `numero`, `importe`, `fecha_cobro`, `fecha_emision`, `fecha_vencimiento`) VALUES
+(1, 2, 2, 2147483647, 500, '2014-09-30', '2014-10-30', '2015-09-10');
 
 -- --------------------------------------------------------
 
@@ -153,14 +159,18 @@ CREATE TABLE IF NOT EXISTS `conceptos` (
   `tipos_movimientos` varchar(64) NOT NULL,
   `detalle` varchar(100) NOT NULL,
   PRIMARY KEY (`id_concepto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6;
 
 --
 -- Dumping data for table `conceptos`
 --
 
 INSERT INTO `conceptos` (`id_concepto`, `tipos_movimientos`, `detalle`) VALUES
-(1, 'Movimientos de caja', 'Esto es para la caja');
+(1, 'Ingresos', 'Pagos Propietarios o Inquilinos'),
+(2, 'Ingresos', 'Clientes otros servicios - Conf/Planos, Tasac, Asesor'),
+(3, 'Egresos', 'Pagos a Proveedores'),
+(4, 'Egresos', 'Pagos a obreros'),
+(5, 'Egresos', 'Otros pagos');
 
 -- --------------------------------------------------------
 
@@ -186,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `consultas` (
 --
 
 INSERT INTO `consultas` (`id_consulta`, `id_article`, `name`, `email`, `phone`, `message`, `fecha`, `ip`) VALUES
-(1, 3136, 'Carlos Almagro', 'carlitos@mixmail.com', '0341-4579214', 'Sometimes we encounter odd application responses that seem to make no sense. One of these such issues is related to running virtual server instances (OS Containers not Para-Virtualized VMs) and attempting to back up their data to Amazonâ€™s S3 cloud storage. For moderately sized virtual machines running MySQL databases or Python/PHP based websites and code repositories this can be an inexpensive, quickly provisioned, and easy way to provide disaster recovery backups in numerous geographic locations, since we generally want DR content to be located in a physically distant location. Nevertheless, we can encounter errors if using an S3 mount in a distance location from our server if the timezone/sync data is incorrect.', '2014-09-17 15:03:02', '192.168.1.1');
+(1, 1, 'Carlos Almagro', 'carlitos@mixmail.com', '0341-4579214', 'Sometimes we encounter odd application responses that seem to make no sense. One of these such issues is related to running virtual server instances (OS Containers not Para-Virtualized VMs) and attempting to back up their data to Amazonâ€™s S3 cloud storage. For moderately sized virtual machines running MySQL databases or Python/PHP based websites and code repositories this can be an inexpensive, quickly provisioned, and easy way to provide disaster recovery backups in numerous geographic locations, since we generally want DR content to be located in a physically distant location. Nevertheless, we can encounter errors if using an S3 mount in a distance location from our server if the timezone/sync data is incorrect.', '2014-09-17 15:03:02', '192.168.1.1');
 
 --
 -- Triggers `consultas`
@@ -215,9 +225,7 @@ CREATE TABLE IF NOT EXISTS `formas_pago` (
 --
 
 INSERT INTO `formas_pago` (`id_forma_pago`, `detalle`) VALUES
-(1, 'Efectivo'),
-(2, 'Tarjeta de credito'),
-(3, 'Tarjeta de debito');
+(1, 'Efectivo');
 
 -- --------------------------------------------------------
 
@@ -237,6 +245,7 @@ CREATE TABLE IF NOT EXISTS `movimientos_diarios` (
   `haber` float(8,2) NOT NULL,
   `iva` int(11) NOT NULL,
   `total` float NOT NULL,
+  `descripcion` text,
   PRIMARY KEY (`id_movimiento`),
   KEY `id_user` (`id_user`),
   KEY `id_forma_pago` (`id_forma_pago`),
@@ -273,7 +282,6 @@ INSERT INTO `roles` (`id_role`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `tipo_cheques` (
   `id_tipo_cheque` int(8) NOT NULL AUTO_INCREMENT,
   `detalle` varchar(100) NOT NULL,
-  `fecha_vencimiento` date NOT NULL,
   PRIMARY KEY (`id_tipo_cheque`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -281,9 +289,9 @@ CREATE TABLE IF NOT EXISTS `tipo_cheques` (
 -- Dumping data for table `tipo_cheques`
 --
 
-INSERT INTO `tipo_cheques` (`id_tipo_cheque`, `detalle`, `fecha_vencimiento`) VALUES
-(1, 'Cheque a 30 dias', '2014-09-30'),
-(2, 'Cheque a 60 dias', '2014-09-29');
+INSERT INTO `tipo_cheques` (`id_tipo_cheque`, `detalle`) VALUES
+(1, 'De emision propia'),
+(2, 'De terceros');
 
 -- --------------------------------------------------------
 

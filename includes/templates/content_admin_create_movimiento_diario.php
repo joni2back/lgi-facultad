@@ -12,6 +12,7 @@ $iva = $app->io->getPost('iva');
 $fecha = $app->io->getPost('fecha');
 $debe = $app->io->getPost('debe');
 $haber = $app->io->getPost('haber');
+$descripcion = $app->io->getPost('descripcion');
 
 $successId = false;
 if ($id_user && $id_concepto && $id_forma_pago) {

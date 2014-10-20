@@ -24,9 +24,30 @@
   </div>
 
   <div class="row-fluid">
+      <div class="span4">
+          <label>Fecha Emision</label>
+          <input type="date" name="fecha_emision" placeholder="Ingrese la fecha..." class="span12" value="<?php echo $fecha_emision; ?>"/>
+          <div class="alert alert-error hide"></div>
+      </div>
+
+      <div class="span4">
+          <label>Fecha Cobro</label>
+          <input type="date" name="fecha_cobro" placeholder="Ingrese la fecha..." class="span12" value="<?php echo $fecha_cobro; ?>"/>
+          <div class="alert alert-error hide"></div>
+      </div>
+
+      <div class="span4">
+          <label>Fecha Vencimiento</label>
+          <input type="date" name="fecha_vencimiento" placeholder="Ingrese la fecha..." class="span12" value="<?php echo $fecha_vencimiento; ?>"/>
+          <div class="alert alert-error hide"></div>
+      </div>
+  </div>
+
+  <div class="row-fluid">
+
       <div class="span6">
-          <label>Fecha</label>
-          <input type="date" name="fecha" placeholder="Ingrese la fecha..." class="span12" value="<?php echo $fecha; ?>"/>
+          <label>Importe</label>
+          <input type="text" name="importe" placeholder="Ingrese el importe..." class="span12" value="<?php echo $importe; ?>"/>
           <div class="alert alert-error hide"></div>
       </div>
 
