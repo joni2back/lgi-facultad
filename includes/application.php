@@ -83,7 +83,8 @@ class Application
             . "SELECT cheques.*, bancos.nombre as banco, tipo_cheques.detalle as tipo_cheque "
             . "FROM cheques "
             . "INNER JOIN tipo_cheques ON cheques.id_tipo_cheque = tipo_cheques.id_tipo_cheque "
-            . "INNER JOIN bancos ON cheques.id_banco = bancos.id_banco; ";
+            . "INNER JOIN bancos ON cheques.id_banco = bancos.id_banco "
+            . "ORDER BY cheques.fecha_emision ASC ";
         return $this->db->query($queryString)->getResults();
     }
 
@@ -93,9 +94,11 @@ class Application
         return $this->db->query($queryString)->getResults();
     }
 
-    public function getArticles()
+    public function getArticles($filterOfertas = false)
     {
-        $queryString = "SELECT id_article, title FROM articles";
+        $queryString = $filterOfertas ?
+            "SELECT id_article, title, id_article_category FROM articles WHERE oferta > 0" :
+            "SELECT id_article, title, id_article_category FROM articles";
         return $this->db->query($queryString)->getResults();
     }
 
@@ -174,8 +177,8 @@ class Application
         $queryString = ""
             . "INSERT INTO articles ("
                 . "id_article_category, id_article_type, id_author,"
-                . "title, description, location, address, price)"
-            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');";
+                . "title, description, location, address, price, oferta)"
+            . "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');";
 
         $queryString = sprintf($queryString,
             $this->db->escape($article->id_article_category),
@@ -185,7 +188,8 @@ class Application
             $this->db->escape($article->description),
             $this->db->escape($article->location),
             $this->db->escape($article->address),
-            $this->db->escape($article->price)
+            $this->db->escape($article->price),
+            $this->db->escape($article->oferta)
         );
         $success = $this->db->query($queryString)->getResponse();
         return $success ? $this->db->getLastRecordId() : false;
@@ -389,7 +393,7 @@ class Application
             . "UPDATE articles SET "
                 . "id_article_category = '%s', id_article_type = '%s', "
                 . "title = '%s', description = '%s', location = '%s', "
-                . "address = '%s', price = '%s' "
+                . "address = '%s', price = '%s', oferta = '%s' "
             . " WHERE id_article = '%s';";
 
         $queryString = sprintf($queryString,
@@ -400,6 +404,7 @@ class Application
             $this->db->escape($article->location),
             $this->db->escape($article->address),
             $this->db->escape($article->price),
+            $this->db->escape(isset($article->oferta) ? $article->oferta : 0),
             $this->db->escape((int) $id)
         );
 

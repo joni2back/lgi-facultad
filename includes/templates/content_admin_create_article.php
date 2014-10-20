@@ -12,6 +12,7 @@ $id_article_type = $app->io->getPost('id_article_type');
 $location = $app->io->getPost('location');
 $address = $app->io->getPost('address');
 $price = $app->io->getPost('price');
+$oferta = $app->io->getPost('oferta');
 
 $successId = false;
 if ($app->io->getPost('title')) {

@@ -9,7 +9,6 @@ $action = $app->io->getPost('action');
 $articleId = $app->io->getQuery('id');
 $article = $app->getArticleById($articleId);
 
-
 //$title = $app->io->getPost('title');
 //$description = $app->io->getPost('description');
 //$id_article_category = $app->io->getPost('id_article_category');
@@ -28,6 +27,7 @@ if ($article) {
     $location = $article->location;
     $address = $article->address;
     $price = $article->price;
+    $oferta = $article->oferta;
 
     if ($action === 'edit' && $app->io->getPost('title')) {
         $success = $app->editArticle($articleId, $app->io->getPost());

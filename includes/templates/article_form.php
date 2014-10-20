@@ -54,4 +54,11 @@
           <div class="alert alert-error hide"></div>
       </div>
   </div>
+
+  <div class="row-fluid">
+      <div class="span12">
+          <label class="checkbox inline"><input type="checkbox" name="oferta" value="1" <?php if ($oferta) { ?>checked="checked"<?php } ?> /> Es una oferta</label>
+          <div class="alert alert-error hide"></div>
+      </div>
+  </div>
 </fieldset>

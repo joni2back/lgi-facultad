@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `location` varchar(128) DEFAULT NULL,
   `address` varchar(64) DEFAULT NULL,
   `price` float DEFAULT NULL,
+  `oferta` int(1) NOT NULL,
   PRIMARY KEY (`id_article`),
   KEY `id_article_category` (`id_article_category`),
   KEY `id_article_type` (`id_article_type`),
